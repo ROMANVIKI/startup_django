@@ -53,6 +53,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     # htmx middleware
     "django_htmx.middleware.HtmxMiddleware",
+    # whitenoise middleware
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -149,3 +152,6 @@ EMAIL_HOST_PASSWORD = 'nsghudlhxralquku '
 EMAIL_PORT = 587
 EMAIL_USE_TLS =True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+
+

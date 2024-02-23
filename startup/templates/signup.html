@@ -129,20 +129,35 @@
             </div>
             <form method="post" action="{% url 'signup' %}" autocomplete="off">
                 {% csrf_token %}
-                <div class="input_field">
+                <div class="input_field" hx-post="/check_username/" hx-trigger="keyup" hx-target="#username-error">
                     {{ form.username }}
+                    <p id="username-error"></p>
                 </div>
+                
+                
                 <div class="input_field">
+                    {{ form.first_name }}
+                </div>
+                
+                <div class="input_field">
+                    {{ form.last_name }}
+                </div>
+
+                <div class="input_field" hx-post="/check_mobile_number/" hx-trigger="keyup" hx-target="#mobile-num-error">
+                    {{ form.mobile_number }}
+                    <p id="mobile-num-error"></p>
+                </div>
+                <div class="input_field" hx-post='/check_email/' hx-trigger="keyup" hx-target='#email-error'>
                     {{ form.email }}
+                    <p id="email-error"></p>
                 </div>
-                <div class="input_field">
-                    {{ form.password1 }} {# Render password1 field #}
+                <div class="input_field" hx-post='/check_password/' hx-trigger="keyup" hx-target='#password-error'>
+                    {{ form.password1 }}
+                    <p id="password-error"></p>
+                     {# Render password1 field #}
                 </div>
                 <div class="input_field">
                     {{ form.password2 }} {# Render password2 field #}
-                </div>
-                <div class="input_field">
-                    {{ form.mobile_number }}
                 </div>
 
                 <input type="submit" class="register-btn" value="Register">

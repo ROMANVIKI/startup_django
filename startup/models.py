@@ -16,7 +16,7 @@ class CustomUser(AbstractUser):
 class ContactModel(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField()
-    phone_number = PhoneNumberField(default=None, null=True, blank=True)
+    phone_number = PhoneNumberField(default=None, null=True, blank=True, region='IN')
     subject = models.CharField(max_length=150)
     message = models.TextField(max_length=500)
 

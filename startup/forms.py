@@ -31,16 +31,18 @@ class ContactForm(forms.ModelForm):
 class SignUpForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'password1', 'password2', 'mobile_number', 'referral_code']
+        fields = ['username','first_name', 'last_name', 'email', 'password1', 'password2', 'mobile_number', 'referral_code']
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs['placeholder'] = 'Username'
+        self.fields['username'].widget.attrs['placeholder'] = 'User Name'
+        self.fields['first_name'].widget.attrs['placeholder'] = 'First Name'
+        self.fields['last_name'].widget.attrs['placeholder'] = 'Last Name'
         self.fields['email'].widget.attrs['placeholder'] = 'Email'
         self.fields['password1'].widget.attrs['placeholder'] = 'Password'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirm Password'
         self.fields['mobile_number'].widget.attrs['placeholder'] = 'Mobile Number'
         self.fields['referral_code'].widget.attrs['placeholder'] = 'Referral Code (Optional)'
-
+        self.fields['mobile_number'].initial = "+91"
 
 

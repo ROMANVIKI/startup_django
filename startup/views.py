@@ -17,6 +17,14 @@ from django.views.generic import FormView, TemplateView
 from django.core.mail import send_mail
 from django.conf import settings
 
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
+
+from phonenumber_field.validators import validate_international_phonenumber
+import re
+
+from django.contrib.auth import authenticate
+from django.contrib.auth.password_validation import validate_password
 # Create your views here.
 
 def signin(request):
@@ -33,7 +41,7 @@ def signin(request):
                 
                 return redirect(reverse('cart'))
             else:
-                return HttpResponse('User not valid!')
+                return HttpResponse('<p style="color:red;">User not valid!</p>')
     form = SignInForm
     return render(request, 'signin.html', {'form':form})
 
@@ -67,7 +75,7 @@ class Contact(FormView):
         phone_number = form.cleaned_data['phone_number']
         subject = form.cleaned_data['subject']
         message = form.cleaned_data['message']
-        recipients = ['vikiadhi2016@gmail.com']
+        recipients = ['vikiadhi2016@gmail.com', '8ragu.io@gmail.com']
         if message:
             sender = ''
         send_mail(recipient_list=recipients, 
@@ -103,11 +111,70 @@ def dashborad(request):
 
 
 
-
+# For signup validation through htmx
 
 def check_username(request):
-    username = request.POST.get(username)
-    if get_user_model().objects.filter(username=username).exists():
-        return HttpResponse('Username already exists.')
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        if get_user_model().objects.filter(username=username).exists():
+            return HttpResponse('<p style="color: red;">Username already exists.</p>')
+        else:
+            return HttpResponse('<p style="color:green;">Username available.</p>')
+        
+
+
+def check_mobile_number(request):
+    mobile_num = request.POST.get('mobile_number')
+    if get_user_model().objects.filter(mobile_number=mobile_num).exists():
+        return HttpResponse('<p style="color: red;">Mobile number already exists.</p>')
     else:
-        return HttpResponse('Username Available.')
+        return HttpResponse('<p></p>')
+
+
+def check_email(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+
+        try:
+            # Validate email format
+            validate_email(email)
+        except ValidationError:
+            # Return error response if email is not valid
+            return HttpResponse('<p style="color: red;">Invalid email format.</p>')
+
+        if get_user_model().objects.filter(email=email).exists():
+            # Return error response if email already exists in the database
+            return HttpResponse('<p style="color: red;">Email already exists.</p>')
+        else:
+            # Return success response if email is valid and does not exist in the database
+            return HttpResponse('<p style="color: green;">Email available.</p>')
+        
+
+
+def check_password(request):
+    if request.method == 'POST':
+        password = request.POST.get('password1')
+
+        try:
+            validate_password(password=password)
+            return HttpResponse('<p style="color: green;">Good to go!</p>')
+        except ValidationError as e:
+            return HttpResponse(f'<p style="color: red;">{e}</p>')
+
+# ------------------------------ 
+        
+
+
+# for login validation through htmx 
+
+# def check_username_password(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
+
+#         user = authenticate(request, username=username, password=password)
+#         if user is not None:
+#             return HttpResponse('<p></p>')
+#         else:
+#             return HttpResponse('<p style="color: red;">Invalid username or password.</p>')
+
