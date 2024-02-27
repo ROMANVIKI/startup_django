@@ -4,14 +4,21 @@ from django.contrib.auth.decorators import login_required
 
 
 urlpatterns = [
-    path("home/", views.Home.as_view(), name="home"),
+    path("", views.Home.as_view(), name="home"),
     path("about/", views.About.as_view(), name="about"),
     path("contact/", views.Contact.as_view(), name="contact"),
 
-    path("cart/", login_required(views.Cart.as_view()), name="cart"),
+   
     path("signin/", views.signin, name="signin"),
     path("signup/", views.signup, name="signup"),
     path("dashboard/", views.dashborad, name="dashboard"),
+
+
+
+
+    path('product-list/', views.ProductListView.as_view(), name='product-list'),
+    path('<int:id>/<slug:slug>/', views.product_detail, name='product_detail'),
+    path('payment-process/', views.payment_process, name='payment-process'),
 
 
     

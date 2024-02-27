@@ -12,7 +12,9 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import get_user_model
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import FormView, TemplateView
-
+import razorpay
+from razorpay import Client  
+from django.http import JsonResponse
 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -25,6 +27,19 @@ import re
 
 from django.contrib.auth import authenticate
 from django.contrib.auth.password_validation import validate_password
+
+
+
+from django.shortcuts import render,get_object_or_404, redirect, reverse
+from .models import Category, Product
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from decimal import Decimal
+import stripe
+from django.conf import settings
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
 
 def signin(request):
@@ -54,8 +69,7 @@ class About(TemplateView):
     template_name = 'about.html'
 
 
-class Cart(TemplateView):
-    template_name = 'cart.html'
+
 
 
 
@@ -165,16 +179,50 @@ def check_password(request):
         
 
 
-# for login validation through htmx 
 
-# def check_username_password(request):
-#     if request.method == 'POST':
-#         username = request.POST.get('username')
-#         password = request.POST.get('password')
 
-#         user = authenticate(request, username=username, password=password)
-#         if user is not None:
-#             return HttpResponse('<p></p>')
-#         else:
-#             return HttpResponse('<p style="color: red;">Invalid username or password.</p>')
+# Create your views here.
+
+class ProductListView(ListView, LoginRequiredMixin):
+    login_url = '/sigin/'
+    model = Product
+    template_name = 'list.html'
+
+
+@login_required(login_url='/signin/')
+def product_detail(request, id, slug):
+    product = get_object_or_404(Product, id=id, slug=slug)
+
+    return render(request, 'detail.html', {'product': product})
+
+
+
+
+# create the Stripe instance
+api_key = settings.RAZOR_PAY_KEY
+api_secret = settings.RAZOR_PAY_KEY_SECRET
+
+client = Client(auth=(api_key, api_secret))
+def payment_process(request):
+    order_amount = 100
+    currency ="INR"
+
+    order = client.order.create(dict(amount=order_amount, currency=currency))
+
+    context = {
+        'order_id': order['id'],
+        'amount': order['amount'],
+        'key_id': api_key
+    }    
+    return JsonResponse(context, safe=False)
+
+
+def payment_completed(request):
+    return render(request, 'completed.html')
+
+
+def payment_canceled(request):
+    return render(request, 'canceled.html')
+
+
 

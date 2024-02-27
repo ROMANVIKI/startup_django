@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-=ex&h%b8n@)g49nx3qw+q=v(wfnpu2znf(e%zhv_!%n&c7qwqa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "phonenumber_field",
     "django_htmx",
     'startup',
+    
 ]
 
 MIDDLEWARE = [
@@ -152,6 +153,11 @@ EMAIL_HOST_PASSWORD = 'nsghudlhxralquku '
 EMAIL_PORT = 587
 EMAIL_USE_TLS =True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# 
+
+RAZOR_PAY_KEY = 'rzp_test_KfoXzWzgSv6cQS'
+RAZOR_PAY_KEY_SECRET = 'YALgCl7vFv6P2ACz3vwH9055'
 
 
 
