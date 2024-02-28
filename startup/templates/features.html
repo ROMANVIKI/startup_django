@@ -1,0 +1,57 @@
+{% load static %}
+<style>
+    .trade-img img {
+        max-width: 100%; /* Ensure the image is responsive and adjusts according to its container */
+        height: auto; /* Maintain aspect ratio */
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4 rounded fade-in">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
+                                    <span class="ml-2">Quick Access wherever whenever from around the World</span>
+                                </li>
+                                <li class="mb-3">
+                                    <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
+                                    <span class="ml-2">No need Prior Trading knowledge</span>
+                                </li>
+                                <li class="mb-3">
+                                    <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
+                                    <span class="ml-2">No need time spend for Trading</span>
+                                </li>
+                                <li class="mb-3">
+                                    <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
+                                    <span class="ml-2">Fully Automated</span>
+                                </li>
+                                <li class="mb-3">
+                                    <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
+                                    <span class="ml-2">Transparency</span>
+                                </li>
+                                <li class="mb-3">
+                                    <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
+                                    <span class="ml-2">Flexibility</span>
+                                </li>
+                                <li class="mb-3">
+                                    <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
+                                    <span class="ml-2">Efficiency</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <div class="trade-img">
+                                <img src="{% static 'media/trade.jpg' %}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
