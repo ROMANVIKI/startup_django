@@ -40,6 +40,8 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+
+from .context_processors import username_data
 # Create your views here.
 
 def signin(request):
@@ -53,8 +55,8 @@ def signin(request):
             if user is not None:
                 
                 login(request, user=user)
-                
-                return redirect(reverse('cart'))
+                request.session['username'] = username
+                return redirect(reverse('about'))
             else:
                 return HttpResponse('<p style="color:red;">User not valid!</p>')
     form = SignInForm
@@ -62,18 +64,28 @@ def signin(request):
 
 
 
-class Home(TemplateView):
-    template_name = 'main.html'
+# class Home(TemplateView):
+    
+#     template_name = 'main.html'
+
+
+def home(request):
+    context = username_data(request)
+    return render(request, 'main.html', context=context)
 
 class About(TemplateView):
     template_name = 'about.html'
 
 
+def get_username(request):
+    user = request.session.get('username')
+    return JsonResponse({'user': user})
 
+def logout_view(request):
+    
+    logout(request)
 
-
-
-
+    return redirect('home')
 
 
 class Contact(FormView):
@@ -189,11 +201,7 @@ class ProductListView(ListView, LoginRequiredMixin):
     template_name = 'list.html'
 
 
-@login_required(login_url='/signin/')
-def product_detail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug)
 
-    return render(request, 'detail.html', {'product': product})
 
 
 
@@ -204,17 +212,27 @@ api_secret = settings.RAZOR_PAY_KEY_SECRET
 
 client = Client(auth=(api_key, api_secret))
 def payment_process(request):
-    order_amount = 100
-    currency ="INR"
+    if request.method == 'POST':
 
-    order = client.order.create(dict(amount=order_amount, currency=currency))
+        order_amount = 100
+        currency ="INR"
+    
+        order = client.order.create(dict(amount=order_amount, currency=currency))
+    
+        context = {
+            'order_id': order['id'],
+            'amount': order['amount'],
+            'key_id': api_key
+        }    
+        return JsonResponse(context, safe=False)
 
-    context = {
-        'order_id': order['id'],
-        'amount': order['amount'],
-        'key_id': api_key
-    }    
-    return JsonResponse(context, safe=False)
+
+
+@login_required(login_url='/signin/')
+def product_detail(request, id, slug):
+    product = get_object_or_404(Product, id=id, slug=slug)
+
+    return render(request, 'detail.html', {'product': product})
 
 
 def payment_completed(request):

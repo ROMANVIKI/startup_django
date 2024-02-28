@@ -15,7 +15,7 @@
 
   /* Custom CSS to make navbar transparent */
   .navbar {
-    background-color: rgba(0, 0, 0, 0.5); /* Transparent background with some opacity */
+    background-color: black; /* Transparent background with some opacity */
     backdrop-filter: blur(10px); /* Apply blur effect to the background */
   }
 
@@ -48,12 +48,32 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'contact' %}">Contact</a>
         </li>
+
+        {% if request.user.is_authenticated %}
+        <img class="nav-link" width="50" height="50" src="{% static 'media/user-logo.png' %}" alt="">
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signin' %}">{{ request.session.username | upper }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+        </li>
+        
+        {% else %}
         <li class="nav-item">
           <a class="nav-link" href="{% url 'signin' %}">SignIn</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'signup' %}">SignUp</a>
         </li>
+        {% endif %}
+
+        
+        <!-- navbar.html -->
+
+
+
+
         {% comment %} <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             SignIn/SignUp
