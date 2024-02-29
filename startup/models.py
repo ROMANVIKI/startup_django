@@ -25,8 +25,11 @@ class ContactModel(models.Model):
         return self.subject + ' - ' + self.name
     
 
+class AnouncementModel(models.Model):
+    anouncement = models.CharField(max_length=200)
 
-
+    def __str__(self):
+        return self.anouncement
 
 
 

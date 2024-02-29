@@ -31,7 +31,7 @@ from django.contrib.auth.password_validation import validate_password
 
 
 from django.shortcuts import render,get_object_or_404, redirect, reverse
-from .models import Category, Product
+from .models import Category, Product, AnouncementModel
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from decimal import Decimal
@@ -73,8 +73,9 @@ def signin(request):
 
 
 def home(request):
-    context = username_data(request)
-    return render(request, 'main.html', context=context)
+
+    anouncement = AnouncementModel.objects.all()
+    return render(request, 'main.html', {'anouncement': anouncement})
 
 class About(TemplateView):
     template_name = 'about.html'

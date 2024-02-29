@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import CustomUser, ContactModel, Product, Category
+from .models import CustomUser, ContactModel, Product, Category, AnouncementModel
 
 # Register your models here.
 admin.site.register(CustomUser)
 admin.site.register(ContactModel)
-
+admin.site.register(AnouncementModel)
 admin.site.register(Category)
 
 @admin.register(Product)

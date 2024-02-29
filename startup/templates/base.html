@@ -6369,9 +6369,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                             data-generated=false aria-hidden=true width=1366 height=630></canvas></div>
                     <div class="container-fluid position-relative">
                         <div class="carousel slide carousel-fade">
-                            <div class=carousel-indicators><button type=button data-bs-target aria-label="Slide 1"
+                            {% comment %} <div class=carousel-indicators><button type=button data-bs-target aria-label="Slide 1"
                                     class=active aria-current=true></button><button type=button data-bs-target
-                                    aria-label="Slide 2" aria-current=false></button></div>
+                                    aria-label="Slide 2" aria-current=false></button></div> {% endcomment %}
                             <div class=carousel-inner>
                                 <div class="active carousel-item">
                                     <div class="carousel-section row align-items-center">
@@ -6437,6 +6437,38 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     </div>
                 </div>
 
+
+                <div class=container>
+                    <div class="row announce_bar position-relative pt-4 pb-5"><img               loading=lazy  class=mb-2
+                            alt=TOKAZ
+                            src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4IiBpZD0iQW5ub3VuY2VtZW50Ij48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMzUuMyAxMDQuNmMtMyAwLTUuNC0yLjItNS44LTUuMWwtMy0yNC40aDE0Ljd2MjMuNmMtLjEgMy4zLTIuNyA1LjktNS45IDUuOXoiIGNsYXNzPSJjb2xvcmZmZmZmZiBzdmdTaGFwZSI+PC9wYXRoPjxwYXRoIGZpbGw9IiNkZGRkZGQiIGQ9Ik00MS4xIDc1LjFIMjYuNGwxLjMgMTBoMTMuNHoiIGNsYXNzPSJjb2xvcmRkZTlmMSBzdmdTaGFwZSI+PC9wYXRoPjxwYXRoIGZpbGw9IiNlZTkxMDkiIGQ9Ik0zNS4zIDEwNy42Yy00LjUgMC04LjItMy4zLTguOC03LjhsLTMtMjQuNGMtLjEtLjkuMi0xLjcuNy0yLjQuNi0uNiAxLjQtMSAyLjItMWgxNC43YzEuNyAwIDMgMS4zIDMgM3YyMy42YzAgNS4xLTQgOS04LjggOXptLTUuNS0yOS41IDIuNiAyMWMuMiAxLjQgMS40IDIuNSAyLjggMi41IDEuNiAwIDIuOS0xLjMgMi45LTIuOVY3OC4xaC04LjN6IiBjbGFzcz0iY29sb3I0NTRiNTQgc3ZnU2hhcGUiPjwvcGF0aD48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNzAuOSA5My45Yy00LjQtMTEuMS0xNS4yLTE4LjQtMjcuMi0xOC40aC0yLjNWNDUuOWgyLjNjMTIgMCAyMi43LTcuMyAyNy4yLTE4LjQiIGNsYXNzPSJjb2xvcmZmZmZmZiBzdmdTaGFwZSI+PC9wYXRoPjxwYXRoIGZpbGw9IiNkZGRkZGQiIGQ9Ik00My43IDY1LjRoLTIuM3YxMGgyLjNjMTIgMCAyMi43IDcuMyAyNy4yIDE4LjR2LTEwYy00LjQtMTEtMTUuMi0xOC40LTI3LjItMTguNHoiIGNsYXNzPSJjb2xvcmRkZTlmMSBzdmdTaGFwZSI+PC9wYXRoPjxwYXRoIGZpbGw9IiNiZWJiYmIiIGQ9Ik00MS41IDc1LjRIMTguNGMtNC4xIDAtNy40LTMuMy03LjQtNy40VjUzLjNjMC00LjEgMy4zLTcuNCA3LjQtNy40aDIzLjEiIGNsYXNzPSJjb2xvcmYzNzc3OCBzdmdTaGFwZSI+PC9wYXRoPjxwYXRoIGZpbGw9IiNkZWE4NjIiIGQ9Ik0xMSA1OC4xdjEwYzAgNC4xIDMuMyA3LjQgNy40IDcuNGgyMy4xdi0xMEgxOC40Yy00LjEtLjEtNy40LTMuNC03LjQtNy40eiIgY2xhc3M9ImNvbG9yZGU2MjY4IHN2Z1NoYXBlIj48L3BhdGg+PHBhdGggZmlsbD0iI2VlOTEwOSIgZD0iTTQxLjUgNzguNEgxOC40QzEyLjYgNzguNCA4IDczLjggOCA2OC4xVjUzLjNjMC01LjcgNC42LTEwLjQgMTAuNC0xMC40aDIzLjFjMS43IDAgMyAxLjMgMyAzcy0xLjMgMy0zIDNIMTguNGMtMi40IDAtNC40IDItNC40IDQuNFY2OGMwIDIuNCAyIDQuNCA0LjQgNC40aDIzLjFjMS43IDAgMyAxLjMgMyAzcy0xLjQgMy0zIDN6IiBjbGFzcz0iY29sb3I0NTRiNTQgc3ZnU2hhcGUiPjwvcGF0aD48cGF0aCBmaWxsPSIjZWU5MTA5IiBkPSJNNDEuNSA3OC40SDE4LjRDMTIuNiA3OC40IDggNzMuOCA4IDY4LjFWNTMuM2MwLTUuNyA0LjYtMTAuNCAxMC40LTEwLjRoMjMuMWMxLjcgMCAzIDEuMyAzIDNzLTEuMyAzLTMgM0gxOC40Yy0yLjQgMC00LjQgMi00LjQgNC40VjY4YzAgMi40IDIgNC40IDQuNCA0LjRoMjMuMWMxLjcgMCAzIDEuMyAzIDNzLTEuNCAzLTMgM3oiIGNsYXNzPSJjb2xvcjQ1NGI1NCBzdmdTaGFwZSI+PC9wYXRoPjxwYXRoIGZpbGw9IiNlZTkxMDkiIGQ9Ik03MC45IDk2LjljLTEuMiAwLTIuMy0uNy0yLjgtMS45LTQtMTAuMS0xMy42LTE2LjYtMjQuNC0xNi42aC0yLjNjLTEuNyAwLTMtMS4zLTMtM1Y0NS45YzAtMS43IDEuMy0zIDMtM2gyLjNjMTAuOCAwIDIwLjQtNi41IDI0LjQtMTYuNi42LTEuNSAyLjQtMi4zIDMuOS0xLjcgMS41LjYgMi4zIDIuNCAxLjcgMy45LTQuOCAxMi4xLTE2LjIgMjAtMjkuMiAyMC4zdjIzLjVjMTMgLjMgMjQuNCA4LjIgMjkuMiAyMC4zLjYgMS41LS4xIDMuMy0xLjcgMy45LS40LjMtLjcuNC0xLjEuNHpNODkuOSA0My43Yy0xLjEgMC0yLjItLjYtMi43LTEuNy0uNy0xLjUtLjEtMy4zIDEuMy00bDEwLjctNS40YzEuNS0uNyAzLjMtLjEgNCAxLjMuNyAxLjUuMSAzLjMtMS4zIDRsLTEwLjcgNS40Yy0uNC4zLS45LjQtMS4zLjR6TTEwMC42IDg4Yy0uNSAwLS45LS4xLTEuMy0uM2wtMTAuNy01LjRjLTEuNS0uNy0yLjEtMi41LTEuMy00IC43LTEuNSAyLjUtMi4xIDQtMS4zbDEwLjcgNS40YzEuNS43IDIuMSAyLjUgMS4zIDQtLjYuOS0xLjYgMS42LTIuNyAxLjZ6TTEwNCA2Mi44SDkwLjhjLTEuNyAwLTMtMS4zLTMtM3MxLjMtMyAzLTNIMTA0YzEuNyAwIDMgMS4zIDMgM3MtMS4zIDMtMyAzeiIgY2xhc3M9ImNvbG9yNDU0YjU0IHN2Z1NoYXBlIj48L3BhdGg+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTY3LjcgMjMuNGgxMC43djc0LjdINjcuN3oiIGNsYXNzPSJjb2xvcmZmZmZmZiBzdmdTaGFwZSI+PC9wYXRoPjxwYXRoIGZpbGw9IiNkZGRkZGQiIGQ9Ik02Ny43IDg4aDEwLjd2MTBINjcuN3oiIGNsYXNzPSJjb2xvcmRkZTlmMSBzdmdTaGFwZSI+PC9wYXRoPjxwYXRoIGZpbGw9IiNlZTkxMDkiIGQ9Ik03OC40IDEwMUg2Ny43Yy0xLjcgMC0zLTEuMy0zLTNWMjMuNGMwLTEuNyAxLjMtMyAzLTNoMTAuN2MxLjcgMCAzIDEuMyAzIDNWOThjMCAxLjctMS40IDMtMyAzem0tNy43LTZoNC43VjI2LjRoLTQuN1Y5NXoiIGNsYXNzPSJjb2xvcjQ1NGI1NCBzdmdTaGFwZSI+PC9wYXRoPjwvc3ZnPg==">
+                            {% for anounce in anouncement %}
+                            <div style=--pause-on-hover:running;--pause-on-click:running;--width:100%;--transform:none
+                            class=rfm-marquee-container>
+                            <div class=rfm-marquee
+                                style=--play:running;--direction:normal;--duration:36.257666015625s;--delay:0s;--iteration-count:infinite;--min-width:100%>
+                                <div class=rfm-initial-child-container>
+                                    <div style=--transform:none class=rfm-child>
+                                        
+                                        <div class=announce_content>
+                                            <p><span><strong>{{anounce}}</strong></span></p>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=rfm-marquee
+                                style=--play:running;--direction:normal;--duration:36.257666015625s;--delay:0s;--iteration-count:infinite;--min-width:100%>
+                                <div style=--transform:none class=rfm-child>
+                                    <div class=announce_content>
+                                        <p><span><strong>{{anounce}}</strong></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                
 
 
 
