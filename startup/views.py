@@ -58,7 +58,10 @@ def signin(request):
                 request.session['username'] = username
                 return redirect(reverse('about'))
             else:
-                return HttpResponse('<p style="color:red;">User not valid!</p>')
+                error = 'User Does Not Exist!, Create a New User To Continue.'
+                form = SignUpForm
+                return render(request, 'signup.html', {'error':error, 'form': form})
+                
     form = SignInForm
     return render(request, 'signin.html', {'form':form})
 
@@ -126,6 +129,8 @@ def signup(request):
             form.save()
             return redirect(reverse('signin'))
         else:
+            error = form.errors
+            return render(request, 'signup.html', {'form': form, 'error':error})
             return HttpResponse(form.errors)
     form = SignUpForm
     return render(request, 'signup.html', {'form':form})
