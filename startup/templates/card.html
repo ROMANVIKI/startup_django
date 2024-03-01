@@ -21,13 +21,14 @@ style=visibility:visible;animation-name:fadeInUp>
 </div>
 <div class="container">
     <div class="row">
+        {% for basic in basic_plan %}
         <div class="col-md-4">
             <div class="card mb-4 rounded fade-in">
                 <div class="card-body">
-                    <h5 class="card-title text-center"><b>BASIC</b></h5>
+                    <h5 class="card-title text-center"><b>{{basic.name}}</b></h5>
                     <p class="card-text">Yes TOKAZ, I want to make money for <b>
                         1 Month!</b></p>
-                    <span><b>₹1000</b></span> <br><br>
+                    <span><b>₹{{basic.price}}</b></span> <br><br>
                     <ul class="list-unstyled">
                         <li class="mb-3">
                             <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
@@ -35,16 +36,18 @@ style=visibility:visible;animation-name:fadeInUp>
                         </li>
                        
                     </ul>
-                    <a href="" class="btn btn-outline-success">Buy Now</a>
+                    <a href="product-detail/{{basic.slug}}" class="btn btn-outline-success">Buy Now</a>
                 </div>
             </div>
         </div>
+      {% endfor %}
+      {% for standard in standard_plan %}
         <div class="col-md-4">
-            <div class="card mb-4 bg-primary rounded fade-in">
+            <div class="card mb-4 bg-secondary rounded fade-in">
                 <div class="card-body">
-                    <h5 class="card-title text-center text-light"><b>STANDARD</b></h5>
+                    <h5 class="card-title text-center text-light"><b>{{standard.name}}</b></h5>
                     <p class="card-text text-light">Yes TOKAZ, I want to make money for <b>3 Months!</b></p>
-                    <span class='text-light'><b>₹2000</b></span> <br><br>
+                    <span class='text-light'><b>₹{{standard.price}}</b></span> <br><br>
                     <ul class="list-unstyled">
                         <li class="mb-3">
                             <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
@@ -52,16 +55,19 @@ style=visibility:visible;animation-name:fadeInUp>
                         </li>
                         
                     </ul>
-                    <a href="#" class="btn btn-outline-success">Buy Now</a>
+                    <a href="product-detail/{{standard.slug}}" class="btn btn-success">Buy Now</a>
                 </div>
             </div>
         </div>
+        {% endfor %}
+
+        {% for professional in professional_plan %}
         <div class="col-md-4 rounded">
             <div class="card mb-4 bg-dark text-light rounded fade-in">
                 <div class="card-body">
-                    <h5 class="card-title text-center text-light"><b>PROFESSIONAL</b></h5>
+                    <h5 class="card-title text-center text-light"><b>{{professional.name}}</b></h5>
                     <p class="card-text text-light">Yes TOKAZ, I want to make money for <b>6 Months!</b></p>
-                    <span><b>₹3000</b></span> <br><br>
+                    <span><b>₹{{professional.price}}</b></span> <br><br>
                     <ul class="list-unstyled">
                         <li class="mb-3">
                             <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
@@ -69,10 +75,10 @@ style=visibility:visible;animation-name:fadeInUp>
                         </li>
                         
                     </ul>
-                    <a href="#" class="btn btn-success">Buy Now</a>
+                    <a href="product-detail/{{professional.slug}}" class="btn btn-success">Buy Now</a>
                 </div>
             </div>
         </div>
-
+        {% endfor %}
     </div>
 </div>

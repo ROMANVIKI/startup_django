@@ -75,7 +75,11 @@ def signin(request):
 def home(request):
 
     anouncement = AnouncementModel.objects.all()
-    return render(request, 'main.html', {'anouncement': anouncement})
+    basic_plan = Product.objects.filter(slug='basic-plan')
+    standard_plan = Product.objects.filter(slug='standard-plan')
+    professional_plan = Product.objects.filter(slug='professional-plan')
+    
+    return render(request, 'main.html', {'anouncement': anouncement, 'basic_plan':basic_plan, 'standard_plan':standard_plan, 'professional_plan': professional_plan})
 
 class About(TemplateView):
     template_name = 'about.html'
@@ -212,31 +216,39 @@ class ProductListView(ListView, LoginRequiredMixin):
 
 
 
-# create the Stripe instance
+# Initialize the Razorpay client with your API key and secret
 api_key = settings.RAZOR_PAY_KEY
 api_secret = settings.RAZOR_PAY_KEY_SECRET
-
 client = Client(auth=(api_key, api_secret))
+
 def payment_process(request):
     if request.method == 'POST':
-
-        order_amount = 100
-        currency ="INR"
-    
-        order = client.order.create(dict(amount=order_amount, currency=currency))
-    
-        context = {
-            'order_id': order['id'],
-            'amount': order['amount'],
-            'key_id': api_key
-        }    
-        return JsonResponse(context, safe=False)
+        order_amount = 10000  # Change this to the actual amount
+        currency = "INR"
+        
+        try:
+            # Create an order using the Razorpay client
+            order = client.order.create(dict(amount=order_amount, currency=currency))
+            context = {
+                'order_id': order['id'],
+                'amount': order['amount'],
+                'key_id': api_key
+            }
+            return JsonResponse(context)
+        except Exception as e:
+            # Handle any errors that occur during order creation
+            return JsonResponse({'error': str(e)}, status=500)
+    else:
+        # Handle non-POST requests appropriately
+        return JsonResponse({'error': 'Invalid request method'}, status=405)
 
 
 
 @login_required(login_url='/signin/')
-def product_detail(request, id):
-    product = get_object_or_404(Product, id=id)
+def product_detail(request, slug):
+    print(f'{slug} ---> the plan' )
+    product = get_object_or_404(Product, slug=slug)
+    
 
     return render(request, 'detail.html', {'product': product})
 

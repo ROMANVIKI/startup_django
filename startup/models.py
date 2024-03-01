@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
+
 
 class CustomUser(AbstractUser):
     mobile_number = PhoneNumberField(blank=True, default=None, null=True)
@@ -13,6 +15,7 @@ class CustomUser(AbstractUser):
 
 # name email phone number subject message
     
+
 
 class ContactModel(models.Model):
     name = models.CharField(max_length=50)
@@ -77,11 +80,7 @@ class Product(models.Model):
     point_3 = models.CharField(max_length=200, default=None, blank=True)
     point_4 = models.CharField(max_length=200, default=None, blank=True)
     point_5 = models.CharField(max_length=200, default=None, blank=True)
-    point_6 = models.CharField(max_length=200, default=None, blank=True)
-    point_7 = models.CharField(max_length=200, default=None, blank=True)
-    point_8 = models.CharField(max_length=200, default=None, blank=True)
-    point_9 = models.CharField(max_length=200, default=None, blank=True)
-    point_10 = models.CharField(max_length=200, default=None, blank=True)
+
 
     class Meta:
         ordering = ['category']
@@ -94,3 +93,15 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+
+
+
+
+class Purchase(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    purchase_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self) -> str:
+         return f"{self.user.username} purchased {self.product.name} on {self.purchase_date}"
