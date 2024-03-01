@@ -186,12 +186,10 @@
 </head>
 
 <body>
-    {% for product in object_list %}
+    
     <main>
-        <img class="headset"
-            src="https://github.com/malunaridev/Challenges-iCodeThis/blob/master/3-cart-item/assets/headphones.png?raw=true"
-            alt="headphones set with pink color" />
-        
+
+        {% for product in object_list %}    
         <div id="cart-text">
             <form method="post" action="{% url 'payment-process' %}">
                 {% csrf_token %}
@@ -209,9 +207,9 @@
                 </div>
             </form>
         </div>
-        
+        {% endfor %}    
     </main>
-    {% endfor %}
+    
 </body>
 
 </html>

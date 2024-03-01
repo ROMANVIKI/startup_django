@@ -235,8 +235,8 @@ def payment_process(request):
 
 
 @login_required(login_url='/signin/')
-def product_detail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug)
+def product_detail(request, id):
+    product = get_object_or_404(Product, id=id)
 
     return render(request, 'detail.html', {'product': product})
 
@@ -245,3 +245,6 @@ def product_detail(request, id, slug):
 
 
 
+
+def loader(request):
+    return render(request, 'loader.html')
