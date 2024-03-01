@@ -246,5 +246,4 @@ def product_detail(request, id):
 
 
 
-def loader(request):
-    return render(request, 'loader.html')
+

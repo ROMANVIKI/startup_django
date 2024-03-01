@@ -14,7 +14,7 @@ urlpatterns = [
 
     path("signup", views.signup, name="signup"),
     path("dashboard", views.dashborad, name="dashboard"),
-    path("loader", views.loader, name="loader"),
+  
 
 
 
