@@ -224,7 +224,7 @@ client = Client(auth=(api_key, api_secret))
 def payment_process(request):
     if request.method == 'POST':
         order_amount = request.price  # Change this to the actual amount
-        print(order_amount)
+        
         currency = "INR"
         
         try:
