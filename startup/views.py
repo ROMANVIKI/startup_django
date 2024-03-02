@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView
 from .forms import SignInForm, SignUpForm, ContactForm
-from .models import CustomUser
+from .models import CustomUser, Purchase
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.urls import reverse, reverse_lazy
@@ -136,7 +136,7 @@ def signup(request):
         else:
             error = form.errors
             return render(request, 'signup.html', {'form': form, 'error':error})
-            return HttpResponse(form.errors)
+            
     form = SignUpForm
     return render(request, 'signup.html', {'form':form})
 
@@ -223,7 +223,8 @@ client = Client(auth=(api_key, api_secret))
 
 def payment_process(request):
     if request.method == 'POST':
-        order_amount = 10000  # Change this to the actual amount
+        order_amount = request.price  # Change this to the actual amount
+        print(order_amount)
         currency = "INR"
         
         try:
@@ -234,6 +235,7 @@ def payment_process(request):
                 'amount': order['amount'],
                 'key_id': api_key
             }
+            Purchase.save()
             return JsonResponse(context)
         except Exception as e:
             # Handle any errors that occur during order creation
@@ -245,7 +247,7 @@ def payment_process(request):
 
 
 
-@login_required(login_url='/signin/')
+@login_required(login_url='/signin')
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug)
     api_key = settings.RAZOR_PAY_KEY
