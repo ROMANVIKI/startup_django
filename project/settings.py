@@ -159,8 +159,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # 
 
-RAZOR_PAY_KEY = 'rzp_test_KfoXzWzgSv6cQS'
-RAZOR_PAY_KEY_SECRET = 'YALgCl7vFv6P2ACz3vwH9055'
+RAZOR_PAY_KEY = 'rzp_test_eHXxG4vJb8KtfH'
+RAZOR_PAY_KEY_SECRET = 'jUMc17w8YzcOIGrlzDWe48CZ'
 
 
 

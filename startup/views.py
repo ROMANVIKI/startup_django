@@ -244,14 +244,12 @@ def payment_process(request):
 
 
 
+
 @login_required(login_url='/signin/')
 def product_detail(request, slug):
-    print(f'{slug} ---> the plan' )
     product = get_object_or_404(Product, slug=slug)
-    
-
-    return render(request, 'detail.html', {'product': product})
-
+    api_key = settings.RAZOR_PAY_KEY
+    return render(request, 'detail.html', {'product': product, 'api_key': api_key})
 
 
 
