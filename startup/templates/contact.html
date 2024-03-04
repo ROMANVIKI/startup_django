@@ -121,7 +121,7 @@
         <div class="title_container">
             <h2>Get In Touch With TOKAZ.</h2><br>
         </div>
-        <form method="post" action="{% url 'signin' %}" autocomplete="off">
+        <form method="post" action="{% url 'contact' %}" autocomplete="off">
             {% csrf_token %}
             <div class="input_field">
                 {{ form.name }}
