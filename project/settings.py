@@ -28,7 +28,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://www.tokaz.in']
+ALLOWED_HOSTS = ['www.tokaz.in', 'tokaz.in']
+
 
 
 # Application definition
