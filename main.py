@@ -1,8 +1,7 @@
-from phonenumber_field.validators import validate_international_phonenumber
 
+from dotenv import load_dotenv
+import os
 
-num = '9444383137'
-
-print(validate_international_phonenumber(num))
-
-
+load_dotenv()
+key = os.environ.get('RAZORPAY_KEY')
+print(key)

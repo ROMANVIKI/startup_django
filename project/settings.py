@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-=ex&h%b8n@)g49nx3qw+q=v(wfnpu2znf(e%zhv_!%n&c7qwqa"
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://www.tokaz.in/']
 
 
 # Application definition
@@ -41,11 +43,15 @@ INSTALLED_APPS = [
     "phonenumber_field",
     "django_htmx",
     'startup',
+    'whitenoise',
+    'whitenoise.runserver_nostatic',
+    
     
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -55,8 +61,9 @@ MIDDLEWARE = [
     # htmx middleware
     "django_htmx.middleware.HtmxMiddleware",
     # whitenoise middleware
-    "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    
+    
+    
 ]
 
 ROOT_URLCONF = "project.urls"
@@ -130,15 +137,16 @@ USE_TZ = True
 
 # settings.py
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR / 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-    },
-}
+
+
+STATTICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -151,16 +159,16 @@ CSRF_TRUSTED_ORIGINS = ['http://localhost:8000', 'http://127.0.0.1:8000']
 
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'vikramanm.py@gmail.com'
-EMAIL_HOST_PASSWORD = 'nsghudlhxralquku '
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS =True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # 
 
-RAZOR_PAY_KEY = 'rzp_test_eHXxG4vJb8KtfH'
-RAZOR_PAY_KEY_SECRET = 'jUMc17w8YzcOIGrlzDWe48CZ'
+RAZOR_PAY_KEY = os.environ.get('RAZORPAY_KEY')
+RAZOR_PAY_KEY_SECRET = os.environ.get('RAZORPAY_KEY_SECRET')
 
 
 
