@@ -23,7 +23,7 @@ urlpatterns = [
     path('product-detail/<str:slug>', views.product_detail, name='product-detail'),
     path('payment-process/', views.payment_process, name='payment-process'),
 
-
+    path('invoice', views.invoice, name='invoice'),
     
 ]
 

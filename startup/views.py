@@ -259,3 +259,5 @@ def product_detail(request, slug):
 
 
 
+def invoice(request):
+    return render(request, 'invoice.html')

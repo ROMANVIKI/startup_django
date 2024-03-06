@@ -1,5 +1,9 @@
 {% load static %}
 <style>
+    .card1 {
+        background-color: #708090; /* Olive Drab */
+
+    }
     .fade-in {
       animation: fadeInAnimation 1s ease-in forwards;
       opacity: 0;
@@ -23,20 +27,20 @@ style=visibility:visible;animation-name:fadeInUp>
     <div class="row">
         {% for basic in basic_plan %}
         <div class="col-md-4">
-            <div class="card mb-4 rounded fade-in">
+            <div class="card mb-4 card1 rounded fade-in">
                 <div class="card-body">
-                    <h5 class="card-title text-center"><b>{{basic.name}}</b></h5>
-                    <p class="card-text">Yes TOKAZ, I want to make money for <b>
+                    <h5 class="card-title text-center text-light"><b>{{basic.name}}</b></h5>
+                    <p class="card-text text-light">Yes TOKAZ, I want to make money for <b>
                         1 Month!</b></p>
-                    <span><b>₹{{basic.price}}</b></span> <br><br>
+                    <span class='text-light'><b>₹{{basic.price}}</b></span> <br><br>
                     <ul class="list-unstyled">
                         <li class="mb-3">
                             <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">
-                            <span class="ml-2">Copy Trade Access for 1 Month</span>
+                            <span class="ml-2 text-light">Copy Trade Access for 1 Month</span>
                         </li>
                        
                     </ul>
-                    <a href="product-detail/{{basic.slug}}" class="btn btn-outline-success">Buy Now</a>
+                    <a href="product-detail/{{basic.slug}}" class="btn btn-success">Buy Now</a>
                 </div>
             </div>
         </div>
