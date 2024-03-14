@@ -1,7 +1,7 @@
 {% load static %}
 <style>
     .card1 {
-        background-color: #708090; /* Olive Drab */
+        background-color:  #FB6542; /* Olive Drab */
 
     }
     .fade-in {
@@ -40,7 +40,8 @@ style=visibility:visible;animation-name:fadeInUp>
                         </li>
                        
                     </ul>
-                    <a href="product-detail/{{basic.slug}}" class="btn btn-success">Buy Now</a>
+                    {% comment %} <a href="product-detail/{{basic.slug}}" class="btn btn-success">Buy Now</a> {% endcomment %}
+                    <a href="checkout" class="btn btn-success">Buy Now</a>
                 </div>
             </div>
         </div>
@@ -59,7 +60,8 @@ style=visibility:visible;animation-name:fadeInUp>
                         </li>
                         
                     </ul>
-                    <a href="product-detail/{{standard.slug}}" class="btn btn-success">Buy Now</a>
+                    <a href="checkout" class="btn btn-success">Buy Now</a>
+                    {% comment %} <a href="product-detail/{{standard.slug}}" class="btn btn-success">Buy Now</a> {% endcomment %}
                 </div>
             </div>
         </div>
@@ -79,7 +81,8 @@ style=visibility:visible;animation-name:fadeInUp>
                         </li>
                         
                     </ul>
-                    <a href="product-detail/{{professional.slug}}" class="btn btn-success">Buy Now</a>
+                    <a href="checkout" class="btn btn-success">Buy Now</a>
+                    {% comment %} <a href="product-detail/{{professional.slug}}" class="btn btn-success">Buy Now</a> {% endcomment %}
                 </div>
             </div>
         </div>

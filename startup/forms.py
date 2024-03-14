@@ -1,4 +1,4 @@
-from .models import CustomUser, ContactModel
+from .models import CustomUser, ContactModel, CheckoutModel
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from phonenumber_field.modelfields import PhoneNumberField
@@ -24,6 +24,30 @@ class ContactForm(forms.ModelForm):
         self.fields['phone_number'].widget.attrs['placeholder'] = 'Phone Number'
         self.fields['subject'].widget.attrs['placeholder'] = 'Subject'
         self.fields['message'].widget.attrs['placeholder'] = 'Your Message'
+
+
+class CheckoutForm(forms.ModelForm):
+    class Meta:
+        model = CheckoutModel
+        fields = [
+            'first_name', 'last_name',
+            'company_name', 'country', 
+            'street_address', 'city', 
+            'state', 'zipcode', 'email'
+            ]
+
+    def __init__(self, *args, **kwargs):
+        super(CheckoutForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].widget.attrs['placeholder'] = 'First Name'
+        self.fields['last_name'].widget.attrs['placeholder'] = 'Last Name'
+        self.fields['company_name'].widget.attrs['placeholder'] = 'Company Name'
+        self.fields['country'].widget.attrs['placeholder'] = 'Country'
+        self.fields['street_address'].widget.attrs['placeholder'] = 'Street Address'
+        self.fields['city'].widget.attrs['placeholder'] = 'City'
+        self.fields['state'].widget.attrs['placeholder'] = 'State'
+        self.fields['zipcode'].widget.attrs['placeholder'] = 'Zipcode'
+        self.fields['email'].widget.attrs['placeholder'] = 'Email'
+
 
 
 

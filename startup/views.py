@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView
-from .forms import SignInForm, SignUpForm, ContactForm
+from .forms import SignInForm, SignUpForm, ContactForm, CheckoutForm
 from .models import CustomUser, Purchase
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
@@ -261,3 +261,19 @@ def product_detail(request, slug):
 
 def invoice(request):
     return render(request, 'invoice.html')
+
+
+
+def checkout(request):
+    if request.method == 'POST':
+        
+        form = CheckoutForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('home'))
+    else:
+        form = CheckoutForm
+
+    return render(request, 'checkout.html', {'form': form})
+
+

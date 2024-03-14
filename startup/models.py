@@ -105,3 +105,19 @@ class Purchase(models.Model):
 
     def __str__(self) -> str:
          return f"{self.user.username} purchased {self.product.name} on {self.purchase_date}"
+
+
+
+class CheckoutModel(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    company_name = models.CharField(max_length=50, null=True)
+    country = models.CharField(max_length=50)
+    street_address = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    zipcode = models.CharField(max_length=12)
+    email = models.EmailField()
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
