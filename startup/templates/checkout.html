@@ -4,10 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Registration Form</title>
+    <title>Checkout Page</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
     <!-- htmx -->
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script>
+        window.onload = function() {
+            document.getElementById('submitBtn').addEventListener('click', function(event) {
+                var checkbox = document.getElementById("terms");
+                if (!checkbox.checked) {
+                    event.preventDefault(); // Prevent form submission if checkbox is not checked
+                    alert("Please accept the terms and conditions.");
+                }
+            });
+        };
+    </script>
+        <script>
+            // Function to open the terms dialog
+            function openTermsDialog() {
+                var dialog = document.getElementById('termsDialog');
+                dialog.showModal();
+            }
+    
+            // Function to close the terms dialog
+            function closeTermsDialog() {
+                var dialog = document.getElementById('termsDialog');
+                dialog.close();
+            }
+            function openSelfDialog() {
+                var dialog = document.getElementById('selfDialog');
+                dialog.showModal();
+            }
+    
+            // Function to close the terms dialog
+            function closeSelfDialog() {
+                var dialog = document.getElementById('selfDialog');
+                dialog.close();
+            }
+        </script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -153,7 +187,14 @@
             height: 50px;
             animation: spin 1s linear infinite;
         }
-    
+        
+        dialog {
+        width: 300px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        }
     
         @keyframes spin {
             0% {
@@ -169,6 +210,26 @@
 <body _="on every htmx:beforeSend in <button:not(.no-disable)/> 
 tell it 
     toggle [disabled='true'] until htmx:afterOnLoad">
+
+    <dialog id="termsDialog">
+        <div>
+            <h2>Terms & Conditions</h2>
+            <p>This is where your terms and conditions text goes.
+
+                
+            </p>
+            <button onclick="closeTermsDialog()">Close</button>
+        </div>
+    </dialog>
+    <dialog id="selfDialog">
+        <div>
+            <h2>Self Declaration</h2>
+            <p>This is where your terms and conditions text goes.</p>
+            <button onclick="closeSelfDialog()">Close</button>
+        </div>
+    </dialog>
+
+
     <div class="loader-wrapper">
         <div class="loader">
             
@@ -238,8 +299,18 @@ tell it
                 <div class="input_field">
                     {{ form.email }} {# Render password2 field #}
                 </div>
+                <div class="terms">
+                    <input type="checkbox" name="terms" id="terms">
+                    <label  onclick="openTermsDialog()" for="terms" >Terms & Conditions</label>
+                </div>
+                <div class="self-declaration">
+                    <input type="checkbox" name="declaration" id="declaration">
+                    <label for="declaration" onclick="openSelfDialog()">Self Declaration</label>
+                </div>
 
-                <input type="submit" class="register-btn" value="Submit Details">
+                <!-- <input type="submit" class="register-btn" value="Submit Details"> -->
+                
+                <input type="submit" id="submitBtn" class="register-btn" value="Submit Details">
                 
             </form>
             
