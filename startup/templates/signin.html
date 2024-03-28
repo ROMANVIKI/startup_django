@@ -185,7 +185,7 @@
             {% include 'nav.html' %}
         </nav>
     </header>
-    
+    {% block signinform %}
     <div class="form_container">
         <div class="form_wrapper">
             <div class="title_container">
@@ -208,6 +208,7 @@
             <img src="{% static 'media/login.png' %}" alt="Side Image">
         </div>
     </div>
+    {% endblock signinform%}
     
 </body>
 </html>

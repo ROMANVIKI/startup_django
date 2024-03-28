@@ -58,7 +58,7 @@
         }
 
         .form_container {
-            /* background-image: url('form.jpeg'); */
+            {% comment %} /* background-image: url('form.jpeg'); */ {% endcomment %}
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -321,6 +321,7 @@ tell it
                 <div class="input_field">
                     {{ form.email }} {# Render password2 field #}
                 </div>
+               
                 <div class="terms">
                     <input type="checkbox" name="terms" id="terms">
                     <label onclick="openTermsDialog()" for="terms">Terms & Conditions</label>

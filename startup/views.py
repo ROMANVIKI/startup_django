@@ -269,7 +269,9 @@ def checkout(request):
         
         form = CheckoutForm(request.POST)
         if form.is_valid():
+            print('form valid')
             form.save()
+            print('form saved')
             first_name = form.cleaned_data['first_name']
             last_name = form.cleaned_data['last_name']
             name = first_name + last_name
@@ -279,15 +281,14 @@ def checkout(request):
             package_price = form.cleaned_data['package_price']
             recipients = ['vikiadhi2016@gmail.com', '8ragu.io@gmail.com']
             message = f"New Customer Attempted to make a payment verify the payment details with your bank transaction details\r\n \r\nTransaction ID: {transaction_id} \r\n \r\n Package Price choosed{package_price}"
-            try:
-                if message:
-                
-                    send_mail(recipient_list=recipients, 
-                          subject=f'Tokaz New Billing Detils', 
-                          message=f'Useraname : {name}\r\n \r\n User Email : {email} \r\n \r\n User Phone Number: {phone_number} \r\n \r\n Message : {message}', 
-                          from_email='vikramanm.py@gmail.com')
-            except ValueError:
-                ''
+          
+            if message:
+            
+                send_mail(recipient_list=recipients, 
+                      subject=f'Tokaz New Billing Detils', 
+                      message=f'Useraname : {name}\r\n \r\n User Email : {email} \r\n \r\n User Phone Number: {phone_number} \r\n \r\n Message : {message}', 
+                      from_email='vikramanm.py@gmail.com')
+            
             return redirect(reverse('success'))
     else:
         form = CheckoutForm
@@ -296,4 +297,4 @@ def checkout(request):
 
 
 def success(request):
-    return render('success.html')
+    return render(request, 'success.html')
