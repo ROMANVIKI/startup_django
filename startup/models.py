@@ -107,17 +107,29 @@ class Purchase(models.Model):
          return f"{self.user.username} purchased {self.product.name} on {self.purchase_date}"
 
 
+class QrCode(models.Model):
+    qr_code = models.ImageField(default=True)
+
+    
+
 
 class CheckoutModel(models.Model):
+    PACKAGE_CHOICES = (
+        (1000, '1000'),
+        (5000, '5000'),
+        (10000, '10000'),
+    )
+   
+    
+    upi_id = models.CharField(max_length=50)
+    transaction_id = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    company_name = models.CharField(max_length=50, null=True)
-    country = models.CharField(max_length=50)
-    street_address = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
-    state = models.CharField(max_length=50)
-    zipcode = models.CharField(max_length=12)
+    phone_number = PhoneNumberField(default=None, null=True, blank=True, region='IN')
     email = models.EmailField()
+    package_price = models.IntegerField(choices=PACKAGE_CHOICES, default=True)
+
+
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

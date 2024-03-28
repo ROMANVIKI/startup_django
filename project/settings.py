@@ -25,11 +25,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
 
 ALLOWED_HOSTS = ['www.tokaz.in', 'tokaz.in', 'tokaz.onrender.com']
+
+
 
 
 
@@ -175,3 +179,7 @@ RAZOR_PAY_KEY_SECRET = os.environ.get('RAZORPAY_KEY_SECRET')
 
 
 
+# Base url to serve media files
+MEDIA_URL = '/media/'
+# Path where media is stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')

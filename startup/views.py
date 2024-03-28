@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView
 from .forms import SignInForm, SignUpForm, ContactForm, CheckoutForm
-from .models import CustomUser, Purchase
+from .models import CustomUser, Purchase, QrCode
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.urls import reverse, reverse_lazy
@@ -270,10 +270,30 @@ def checkout(request):
         form = CheckoutForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(reverse('home'))
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            name = first_name + last_name
+            email = form.cleaned_data['email']
+            phone_number = form.cleaned_data['phone_number']
+            transaction_id = form.cleaned_data['transaction_id']
+            package_price = form.cleaned_data['package_price']
+            recipients = ['vikiadhi2016@gmail.com', '8ragu.io@gmail.com']
+            message = f"New Customer Attempted to make a payment verify the payment details with your bank transaction details\r\n \r\nTransaction ID: {transaction_id} \r\n \r\n Package Price choosed{package_price}"
+            try:
+                if message:
+                
+                    send_mail(recipient_list=recipients, 
+                          subject=f'Tokaz New Billing Detils', 
+                          message=f'Useraname : {name}\r\n \r\n User Email : {email} \r\n \r\n User Phone Number: {phone_number} \r\n \r\n Message : {message}', 
+                          from_email='vikramanm.py@gmail.com')
+            except ValueError:
+                ''
+            return redirect(reverse('success'))
     else:
         form = CheckoutForm
-
+    # qr_code = QrCode.objects.first()
     return render(request, 'checkout.html', {'form': form})
 
 
+def success(request):
+    return render('success.html')

@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +10,8 @@
     <!-- htmx -->
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <script>
-        window.onload = function() {
-            document.getElementById('submitBtn').addEventListener('click', function(event) {
+        window.onload = function () {
+            document.getElementById('submitBtn').addEventListener('click', function (event) {
                 var checkbox = document.getElementById("terms");
                 if (!checkbox.checked) {
                     event.preventDefault(); // Prevent form submission if checkbox is not checked
@@ -19,43 +20,45 @@
             });
         };
     </script>
-        <script>
-            // Function to open the terms dialog
-            function openTermsDialog() {
-                var dialog = document.getElementById('termsDialog');
-                dialog.showModal();
-            }
-    
-            // Function to close the terms dialog
-            function closeTermsDialog() {
-                var dialog = document.getElementById('termsDialog');
-                dialog.close();
-            }
-            function openSelfDialog() {
-                var dialog = document.getElementById('selfDialog');
-                dialog.showModal();
-            }
-    
-            // Function to close the terms dialog
-            function closeSelfDialog() {
-                var dialog = document.getElementById('selfDialog');
-                dialog.close();
-            }
-        </script>
+    <script>
+        // Function to open the terms dialog
+        function openTermsDialog() {
+            var dialog = document.getElementById('termsDialog');
+            dialog.showModal();
+        }
+
+
+        function closeTermsDialog() {
+            var dialog = document.getElementById('termsDialog');
+            dialog.close();
+        }
+        function openSelfDialog() {
+            var dialog = document.getElementById('selfDialog');
+            dialog.showModal();
+        }
+
+
+        function closeSelfDialog() {
+            var dialog = document.getElementById('selfDialog');
+            dialog.close();
+        }
+    </script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             font-size: 16px;
             line-height: 1.6;
             background-image: url('{% static "media/form.jpg" %}');
-            background-size: cover; /* Cover the full screen */
-            background-position: center; /* Center the background image */
+            background-size: cover;
+            /* Cover the full screen */
+            background-position: center;
+            /* Center the background image */
             margin: 0;
             padding: 0;
         }
 
         .form_container {
-            background-image: url('form.jpeg');
+            /* background-image: url('form.jpeg'); */
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -129,14 +132,33 @@
             justify-content: center;
             align-items: center;
             transform: translate(61 2264) rotate(42);
-            animation: bounce 1s infinite alternate; 
+            animation: bounce 1s infinite alternate;
+
+        }
+        .price-field{
+            padding: 40px;
+        }
+        .qr_code{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
             
         }
+
         /* Define bounce animation */
-@keyframes bounce {
-    0% { transform: translateY(0); } /* Start position */
-    100% { transform: translateY(-20px); } /* End position */
-}
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+
+            /* Start position */
+            100% {
+                transform: translateY(-20px);
+            }
+
+            /* End position */
+        }
 
         .image_container img {
             transform: rotate(42);
@@ -165,7 +187,7 @@
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <style>
         /* loader.css */
-    
+
         .loader-wrapper {
             position: fixed;
             top: 0;
@@ -178,7 +200,7 @@
             justify-content: center;
             align-items: center;
         }
-    
+
         .loader {
             border: 8px solid #f3f3f3;
             border-top: 8px solid goldenrod;
@@ -187,26 +209,27 @@
             height: 50px;
             animation: spin 1s linear infinite;
         }
-        
+
         dialog {
-        width: 300px;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        background-color: #fff;
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
         }
-    
+
         @keyframes spin {
             0% {
                 transform: rotate(0deg);
             }
-    
+
             100% {
                 transform: rotate(360deg);
             }
         }
     </style>
 </head>
+
 <body _="on every htmx:beforeSend in <button:not(.no-disable)/> 
 tell it 
     toggle [disabled='true'] until htmx:afterOnLoad">
@@ -216,7 +239,7 @@ tell it
             <h2>Terms & Conditions</h2>
             <p>This is where your terms and conditions text goes.
 
-                
+
             </p>
             <button onclick="closeTermsDialog()">Close</button>
         </div>
@@ -232,8 +255,8 @@ tell it
 
     <div class="loader-wrapper">
         <div class="loader">
-            
-        </div> 
+
+        </div>
 
     </div>
     <script>
@@ -250,7 +273,7 @@ tell it
     {% include 'nav.html' %}
     <div class="form_container">
 
-      
+
         <div class="form_wrapper">
             <div class="title_container">
                 <h2>Billing Details</h2>
@@ -259,49 +282,48 @@ tell it
                 {% if error %}
                 <p style="color: orangered;">{{error}}</p>
                 {% endif %}
+
+                <div class="qr_code">
+                    <p>QR Code to send money.</p>
+                    <img width="200" src="{% static 'media/qrcode.webp'%}" alt="">
+                </div>
+                <br>
+
                 {% csrf_token %}
                 <div class="input_field" hx-post="/check_username/" hx-trigger="keyup" hx-target="#username-error">
+                    {{ form.upi_id }}
+                    
+                </div>
+
+
+                <div class="input_field">
+                    <p>Select the Package Price</p>
+                    {{ form.package_price }}
+                </div>
+
+                <div class="input_field">
+                    {{ form.transaction_id }}
+                </div>
+
+                <div class="input_field" >
                     {{ form.first_name }}
-                    <p id="username-error"></p>
+                    
                 </div>
-                
-                
-                <div class="input_field">
+                <div class="input_field" >
                     {{ form.last_name }}
-                </div>
-                
-                <div class="input_field">
-                    {{ form.company_name }}
-                </div>
-
-                <div class="input_field" hx-post="/check_mobile_number/" hx-trigger="keyup" hx-target="#mobile-num-error">
-                    {{ form.country }}
-                    <p id="mobile-num-error"></p>
-                </div>
-                <div class="input_field" hx-post='/check_email/' hx-trigger="keyup" hx-target='#email-error'>
-                    {{ form.street_address }}
-                    <p id="email-error"></p>
-                </div>
-                <div class="input_field" hx-post='/check_password/' hx-trigger="keyup" hx-target='#password-error'>
-                    {{ form.city }}
-                    <p id="password-error"></p>
-                     {# Render password1 field #}
+                    
                 </div>
                 <div class="input_field">
-                    {{ form.state }} {# Render password2 field #}
+                    {{ form.phone_number }}
+                    
+                    {# Render password1 field #}
                 </div>
-
-
-                <div class="input_field">
-                    {{ form.zipcode }} {# Render password2 field #}
-                </div>
-
                 <div class="input_field">
                     {{ form.email }} {# Render password2 field #}
                 </div>
                 <div class="terms">
                     <input type="checkbox" name="terms" id="terms">
-                    <label  onclick="openTermsDialog()" for="terms" >Terms & Conditions</label>
+                    <label onclick="openTermsDialog()" for="terms">Terms & Conditions</label>
                 </div>
                 <div class="self-declaration">
                     <input type="checkbox" name="declaration" id="declaration">
@@ -309,18 +331,16 @@ tell it
                 </div>
 
                 <!-- <input type="submit" class="register-btn" value="Submit Details"> -->
-                
+
                 <input type="submit" id="submitBtn" class="register-btn" value="Submit Details">
-                
+
             </form>
-            
+
         </div>
         <div style="transform: translate(61.573 2264.34) rotate(42);" class="image_container">
-            <img 
-           
-            src="{% static 'media/checkout.png' %}" 
-            alt="Side Image">
+            <img src="{% static 'media/checkout.png' %}" alt="Side Image">
         </div>
     </div>
 </body>
+
 </html>

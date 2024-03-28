@@ -30,23 +30,19 @@ class CheckoutForm(forms.ModelForm):
     class Meta:
         model = CheckoutModel
         fields = [
-            'first_name', 'last_name',
-            'company_name', 'country', 
-            'street_address', 'city', 
-            'state', 'zipcode', 'email'
+            'upi_id', 'transaction_id', 'phone_number','first_name', 'last_name', 'email', 'package_price'
             ]
 
     def __init__(self, *args, **kwargs):
         super(CheckoutForm, self).__init__(*args, **kwargs)
+        self.fields['upi_id'].widget.attrs['placeholder'] = 'UPI ID'
+        self.fields['package_price'].widget.attrs['placeholder'] = 'Select Package Price'
+        self.fields['transaction_id'].widget.attrs['placeholder'] = 'Transaction ID'
         self.fields['first_name'].widget.attrs['placeholder'] = 'First Name'
         self.fields['last_name'].widget.attrs['placeholder'] = 'Last Name'
-        self.fields['company_name'].widget.attrs['placeholder'] = 'Company Name'
-        self.fields['country'].widget.attrs['placeholder'] = 'Country'
-        self.fields['street_address'].widget.attrs['placeholder'] = 'Street Address'
-        self.fields['city'].widget.attrs['placeholder'] = 'City'
-        self.fields['state'].widget.attrs['placeholder'] = 'State'
-        self.fields['zipcode'].widget.attrs['placeholder'] = 'Zipcode'
+        self.fields['phone_number'].widget.attrs['placeholder'] = 'Phone Number'
         self.fields['email'].widget.attrs['placeholder'] = 'Email'
+        self.fields['phone_number'].initial = "+91"
 
 
 
