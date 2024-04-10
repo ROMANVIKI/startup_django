@@ -20,6 +20,30 @@
             });
         };
     </script>
+        <script>
+            function copyText() {
+                // Select the text inside the <p> tag
+                var text = document.getElementById("textToCopy").innerText;
+    
+                // Create a temporary textarea element to perform the copy operation
+                var tempInput = document.createElement("textarea");
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+    
+                // Select the text inside the temporary input field
+                tempInput.select();
+                tempInput.setSelectionRange(0, 99999); /*For mobile devices*/
+    
+                // Copy the selected text to the clipboard
+                document.execCommand("copy");
+    
+                // Remove the temporary input field
+                document.body.removeChild(tempInput);
+    
+                // Alert the user that the text has been copied (you can customize this part)
+                alert("Text copied to clipboard: " + text);
+            }
+        </script>
     <script>
         // Function to open the terms dialog
         function openTermsDialog() {
@@ -58,7 +82,7 @@
         }
 
         .form_container {
-            {% comment %} /* background-image: url('form.jpeg'); */ {% endcomment %}
+            
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -183,7 +207,36 @@
                 display: none;
             }
         }
+        
     </style>
+        <style>
+            /* Style for the copy button */
+            .container-upi{
+                display: flex;
+                flex-direction: row;
+            }
+            button {
+                padding: 2px 15px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 2px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            button:hover {
+                background-color: #45a049;
+            }
+            #textToCopy {
+            font-size: 16px;
+            color: #333;
+            font-family: Arial, sans-serif;
+            padding-right: 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+        </style>
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
     <style>
         /* loader.css */
@@ -286,25 +339,32 @@ tell it
                 <div class="qr_code">
                     <p>QR Code to send money.</p>
                     <img width="200" src="{% static 'media/qrcode.webp'%}" alt="">
+                  
+                    <p style="font-weight: 900;">Vijayaraj</p>
+                    <br>
+                    <div class="container-upi">
+                        <p id="textToCopy">tokaz@okaxis</p>
+                        
+                        <div>
+                            <button onclick="copyText()">Copy</button>
+                        </div>
+                    </div>
                 </div>
+                
                 <br>
 
                 {% csrf_token %}
-                <div class="input_field" hx-post="/check_username/" hx-trigger="keyup" hx-target="#username-error">
-                    {{ form.upi_id }}
-                    
-                </div>
-
-
+                
+                
                 <div class="input_field">
                     <p>Select the Package Price</p>
                     {{ form.package_price }}
                 </div>
-
+                
                 <div class="input_field">
                     {{ form.transaction_id }}
                 </div>
-
+                
                 <div class="input_field" >
                     {{ form.first_name }}
                     
@@ -321,7 +381,14 @@ tell it
                 <div class="input_field">
                     {{ form.email }} {# Render password2 field #}
                 </div>
-               
+                <div class="input_field" hx-post="/check_username/" hx-trigger="keyup" hx-target="#username-error">
+                    {{ form.upi_id }}
+                    
+                </div>
+                <div>
+                    <p><span><b>Note: Please carefully read Terms & Conditions and self declaration before submit.</b></span></p>
+                </div>
+                
                 <div class="terms">
                     <input type="checkbox" name="terms" id="terms">
                     <label onclick="openTermsDialog()" for="terms">Terms & Conditions</label>
