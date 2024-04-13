@@ -96,8 +96,8 @@ def logout_view(request):
     return redirect('home')
 
 
-class Contact(FormView):
-    template_name = 'contact.html'
+class Enquiry(FormView):
+    template_name = 'enquiry.html'
     form_class = ContactForm  # Set the form class
 
     def form_valid(self, form):
@@ -303,3 +303,8 @@ def success(request):
 
 def features(request):
     return render(request, 'our_features.html')
+
+
+
+def contact(request):
+    return render(request, 'contact.html')

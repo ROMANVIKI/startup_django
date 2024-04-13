@@ -4716,7 +4716,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
     .section_heading h2 {
         border-radius: 2px;
-        color: var(--color-111);
+        color: var(--bs-blue);
         padding: 10px 10px 0;
         position: relative;
         transition: all .4s ease 0s
@@ -4733,7 +4733,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
     .section_heading h2:after,
     .section_heading h2:before {
-        background-color: var(--head-border);
+        background-color: palevioletred;
         content: "";
         display: block;
         left: 50%
@@ -4746,6 +4746,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         position: relative;
         top: -2px;
         width: 100px
+
+
     }
 
     .moreabtbtn {
@@ -4899,7 +4901,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
 
     .service_content h3 {
-        color: var(--color-111);
+        color: var(--bs-blue);
         font-size: 17px
     }
 
@@ -4924,6 +4926,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
     .service_content a:hover {
         border-radius: 40px !important;
+        color: var(--bs-blue) !important;
         font-size: 13px;
         font-weight: 500;
         line-height: 1.143em;
@@ -4931,7 +4934,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     }
 
     .service_content a:before {
-        background: var(--theme-secondary-color);
+        background: var(--bs-blue);
         bottom: -5px;
         content: "";
         height: 2px;
@@ -6609,35 +6612,40 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                             <div class=row>
                                 <div class="col-md-4 col-sm-12 col-lg-4 mb-5 wow fadeInLeft animated"
                                     style=visibility:visible;animation-name:fadeInLeft>
-                                    <div class="service_content text-center"><img loading=lazy alt=TOKAZ
+                                    <div class="service_content text-center">
+                                        <img loading=lazy alt=TOKAZ
                                             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNi4wMDEgMzguMDAwMUgxNC4zNjhDMTMuMDYxIDM4LjAwMDEgMTIuMDAxIDM5LjA2MDEgMTIuMDAxIDQwLjM2ODFWNDUuNjMyMkMxMi4wMDEgNDYuOTQwMiAxMy4wNjEgNDguMDAwMiAxNC4zNjggNDguMDAwMkgxNi4wMDFWNTcuMDAwMkMxNi4wMDEgNTcuNTUyMiAxNi40NDkgNTguMDAwMiAxNy4wMDEgNTguMDAwMkMxNy41NTMgNTguMDAwMiAxOC4wMDEgNTcuNTUyMiAxOC4wMDEgNTcuMDAwMlY0OC4wMDAySDE5LjYzM0MyMC45NDEgNDguMDAwMiAyMi4wMDExIDQ2Ljk0MDIgMjIuMDAxMSA0NS42MzIyVjQwLjM2ODFDMjIuMDAxMSAzOS4wNjAxIDIwLjk0MSAzOC4wMDAxIDE5LjYzMyAzOC4wMDAxSDE4LjAwMVYyNy4wMDAxQzE4LjAwMSAyNi40NDgxIDE3LjU1MyAyNi4wMDAxIDE3LjAwMSAyNi4wMDAxQzE2LjQ0OSAyNi4wMDAxIDE2LjAwMSAyNi40NDgxIDE2LjAwMSAyNy4wMDAxVjM4LjAwMDFaTTUyLjAwMTIgMTYuMDAwMUg1MC4zNjgyQzQ5LjA2MTIgMTYuMDAwMSA0OC4wMDExIDE3LjA2MDEgNDguMDAxMSAxOC4zNjgxVjQzLjYzMjJDNDguMDAxMSA0NC45NDAyIDQ5LjA2MTIgNDYuMDAwMiA1MC4zNjgyIDQ2LjAwMDJINTIuMDAxMlY1NS4wMDAyQzUyLjAwMTIgNTUuNTUyMiA1Mi40NDkyIDU2LjAwMDIgNTMuMDAxMiA1Ni4wMDAyQzUzLjU1MzIgNTYuMDAwMiA1NC4wMDEyIDU1LjU1MjIgNTQuMDAxMiA1NS4wMDAyVjQ2LjAwMDJINTUuNjMzMkM1Ni45NDEyIDQ2LjAwMDIgNTguMDAxMiA0NC45NDAyIDU4LjAwMTIgNDMuNjMyMlYxOC4zNjgxQzU4LjAwMTIgMTcuMDYwMSA1Ni45NDEyIDE2LjAwMDEgNTUuNjMzMiAxNi4wMDAxSDU0LjAwMTJWNy4wMDAwMkM1NC4wMDEyIDYuNDQ4MDIgNTMuNTUzMiA2LjAwMDAxIDUzLjAwMTIgNi4wMDAwMUM1Mi40NDkyIDYuMDAwMDEgNTIuMDAxMiA2LjQ0ODAyIDUyLjAwMTIgNy4wMDAwMlYxNi4wMDAxWk00LjAwMDk5IDI4LjAwMDFIMi4zNjc5OEMxLjA2MDk4IDI4LjAwMDEgMC4wMDA5NzY1NjIgMjkuMDYwMSAwLjAwMDk3NjU2MiAzMC4zNjgxQzAuMDAwOTc2NTYyIDM0LjMxMzEgMC4wMDA5NzY1NjIgNDUuNjg3MiAwLjAwMDk3NjU2MiA0OS42MzIyQzAuMDAwOTc2NTYyIDUwLjk0MDIgMS4wNjA5OCA1Mi4wMDAyIDIuMzY3OTggNTIuMDAwMkg0LjAwMDk5VjU1LjAwMDJDNC4wMDA5OSA1NS41NTIyIDQuNDQ4OTkgNTYuMDAwMiA1LjAwMSA1Ni4wMDAyQzUuNTUzIDU2LjAwMDIgNi4wMDEgNTUuNTUyMiA2LjAwMSA1NS4wMDAyVjUyLjAwMDJINy42MzNDOC45NDEwMSA1Mi4wMDAyIDEwLjAwMSA1MC45NDAyIDEwLjAwMSA0OS42MzIyVjMwLjM2ODFDMTAuMDAxIDI5LjA2MDEgOC45NDEwMSAyOC4wMDAxIDcuNjMzIDI4LjAwMDFINi4wMDFWMjEuMDAwMUM2LjAwMSAyMC40NDgxIDUuNTUzIDIwLjAwMDEgNS4wMDEgMjAuMDAwMUM0LjQ0ODk5IDIwLjAwMDEgNC4wMDA5OSAyMC40NDgxIDQuMDAwOTkgMjEuMDAwMVYyOC4wMDAxWk0yOC4wMDExIDIxLjUwMDFIMjYuMzY4MUMyNS4wNjExIDIxLjUwMDEgMjQuMDAxMSAyMi41NjAxIDI0LjAwMTEgMjMuODY4MUMyNC4wMDExIDI2Ljk3MzEgMjQuMDAxMSAzNC41MjcxIDI0LjAwMTEgMzcuNjMyMUMyNC4wMDExIDM4Ljk0MDEgMjUuMDYxMSA0MC4wMDAxIDI2LjM2ODEgNDAuMDAwMUgyOC4wMDExVjQ5LjAwMDJDMjguMDAxMSA0OS41NTIyIDI4LjQ0OTEgNTAuMDAwMiAyOS4wMDExIDUwLjAwMDJDMjkuNTUzMSA1MC4wMDAyIDMwLjAwMTEgNDkuNTUyMiAzMC4wMDExIDQ5LjAwMDJWNDAuMDAwMUgzMS42MzMxQzMyLjk0MTEgNDAuMDAwMSAzNC4wMDExIDM4Ljk0MDEgMzQuMDAxMSAzNy42MzIxQzM0LjAwMTEgMzQuNTI3MSAzNC4wMDExIDI2Ljk3MzEgMzQuMDAxMSAyMy44NjgxQzM0LjAwMTEgMjIuNTYwMSAzMi45NDExIDIxLjUwMDEgMzEuNjMzMSAyMS41MDAxSDMwLjAwMTFWMTkuMDAwMUMzMC4wMDExIDE4LjQ0ODEgMjkuNTUzMSAxOC4wMDAxIDI5LjAwMTEgMTguMDAwMUMyOC40NDkxIDE4LjAwMDEgMjguMDAxMSAxOC40NDgxIDI4LjAwMTEgMTkuMDAwMVYyMS41MDAxWk04LjAwMTAxIDMwLjM2ODFWNDkuNjMyMkM4LjAwMTAxIDQ5LjgzNTIgNy44MzYgNTAuMDAwMiA3LjYzMyA1MC4wMDAySDIuMzY3OThDMi4xNjQ5OCA1MC4wMDAyIDIuMDAwOTggNDkuODM1MiAyLjAwMDk4IDQ5LjYzMjJWMzAuMzY4MUMyLjAwMDk4IDMwLjE2NTEgMi4xNjQ5OCAzMC4wMDAxIDIuMzY3OTggMzAuMDAwMUg3LjYzM0M3LjgzNiAzMC4wMDAxIDguMDAxMDEgMzAuMTY1MSA4LjAwMTAxIDMwLjM2ODFaTTIwLjAwMTEgNDAuMzY3MVY0NS42MzIyQzIwLjAwMTEgNDUuODM1MiAxOS44MzYgNDYuMDAwMiAxOS42MzMgNDYuMDAwMkgxNC4zNjhDMTQuMTY1IDQ2LjAwMDIgMTQuMDAxIDQ1LjgzNTIgMTQuMDAxIDQ1LjYzMzJDMTQuMDAxIDQ1LjYzMjIgMTQuMDAxIDQwLjM2ODEgMTQuMDAxIDQwLjM2ODFDMTQuMDAxIDQwLjE2NTEgMTQuMTY1IDQwLjAwMDEgMTQuMzY4IDQwLjAwMDFIMTkuNjMzQzE5LjgzNiA0MC4wMDAxIDIwLjAwMTEgNDAuMTY1MSAyMC4wMDExIDQwLjM2NzFaTTU2LjAwMTIgMTguMzY3MVY0My42MzIyQzU2LjAwMTIgNDMuODM1MiA1NS44MzYyIDQ0LjAwMDIgNTUuNjMzMiA0NC4wMDAySDUwLjM2ODJDNTAuMTY1MiA0NC4wMDAyIDUwLjAwMTIgNDMuODM1MiA1MC4wMDEyIDQzLjYzMzJDNTAuMDAxMiA0My42MzIyIDUwLjAwMTIgMTguMzY4MSA1MC4wMDEyIDE4LjM2ODFDNTAuMDAxMiAxOC4xNjUxIDUwLjE2NTIgMTguMDAwMSA1MC4zNjgyIDE4LjAwMDFINTUuNjMzMkM1NS44MzYyIDE4LjAwMDEgNTYuMDAxMiAxOC4xNjUxIDU2LjAwMTIgMTguMzY3MVpNNDAuMDAxMSA4LjAwMDAySDM4LjM2ODFDMzcuMDYxMSA4LjAwMDAyIDM2LjAwMTEgOS4wNjAwMyAzNi4wMDExIDEwLjM2OEMzNi4wMDExIDEzLjcxNCAzNi4wMDExIDIyLjI4NjEgMzYuMDAxMSAyNS42MzIxQzM2LjAwMTEgMjYuOTQwMSAzNy4wNjExIDI4LjAwMDEgMzguMzY4MSAyOC4wMDAxSDQwLjAwMTFWNDEuMDAwMUM0MC4wMDExIDQxLjU1MjEgNDAuNDQ5MSA0Mi4wMDAxIDQxLjAwMTEgNDIuMDAwMUM0MS41NTMxIDQyLjAwMDEgNDIuMDAxMSA0MS41NTIxIDQyLjAwMTEgNDEuMDAwMVYyOC4wMDAxSDQzLjYzMzFDNDQuOTQxMSAyOC4wMDAxIDQ2LjAwMTEgMjYuOTQwMSA0Ni4wMDExIDI1LjYzMjFDNDYuMDAxMSAyMi4yODYxIDQ2LjAwMTEgMTMuNzE0IDQ2LjAwMTEgMTAuMzY4QzQ2LjAwMTEgOS4wNjAwMyA0NC45NDExIDguMDAwMDIgNDMuNjMzMSA4LjAwMDAySDQyLjAwMTFWM0M0Mi4wMDExIDIuNDQ4IDQxLjU1MzEgMiA0MS4wMDExIDJDNDAuNDQ5MSAyIDQwLjAwMTEgMi40NDggNDAuMDAxMSAzVjguMDAwMDJaTTMyLjAwMTEgMjMuODY4MUMzMi4wMDExIDI2Ljk3MzEgMzIuMDAxMSAzNC41MjcxIDMyLjAwMTEgMzcuNjMyMUMzMi4wMDExIDM3LjgzNTEgMzEuODM2MSAzOC4wMDAxIDMxLjYzMzEgMzguMDAwMUgyNi4zNjgxQzI2LjE2NTEgMzguMDAwMSAyNi4wMDExIDM3LjgzNTEgMjYuMDAxMSAzNy42MzIxQzI2LjAwMTEgMzQuNTI3MSAyNi4wMDExIDI2Ljk3MzEgMjYuMDAxMSAyMy44NjgxQzI2LjAwMTEgMjMuNjY1MSAyNi4xNjUxIDIzLjUwMDEgMjYuMzY4MSAyMy41MDAxSDMxLjYzMzFDMzEuODM2MSAyMy41MDAxIDMyLjAwMTEgMjMuNjY1MSAzMi4wMDExIDIzLjg2ODFaTTQ0LjAwMTEgMTAuMzY4QzQ0LjAwMTEgMTMuNzE0IDQ0LjAwMTEgMjIuMjg2MSA0NC4wMDExIDI1LjYzMjFDNDQuMDAxMSAyNS44MzUxIDQzLjgzNjEgMjYuMDAwMSA0My42MzMxIDI2LjAwMDFIMzguMzY4MUMzOC4xNjUxIDI2LjAwMDEgMzguMDAxMSAyNS44MzUxIDM4LjAwMTEgMjUuNjMyMUMzOC4wMDExIDIyLjI4NjEgMzguMDAxMSAxMy43MTQgMzguMDAxMSAxMC4zNjhDMzguMDAxMSAxMC4xNjUgMzguMTY1MSAxMCAzOC4zNjgxIDEwSDQzLjYzMzFDNDMuODM2MSAxMCA0NC4wMDExIDEwLjE2NSA0NC4wMDExIDEwLjM2OFoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8xMzZfNDM0KSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzEzNl80MzQiIHgxPSIxNC4wMDEiIHkxPSIyNi4wMDAxIiB4Mj0iNTUuMDAxMiIgeTI9IjQ4LjAwMDIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzAwOTlGQSIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwMDUzRkEiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K"
                                             class="px-2 pt-2">
                                         <h3 class=mb-2>Driving innovations</h3>
                                         <p>We stand on a constant pursuit of perfection. The
                                             introduction of new cutting-edge features and setting trends makes us
-                                            the industry leaders.</p><a rel=preload href=https://www.TOKAZ.com />Read
+                                            the industry leaders.</p><a style="color: var(--bs-blue);" rel=preload href=https://www.TOKAZ.com />Read
                                         More</a>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-12 col-lg-4 mb-5 wow fadeInUp animated"
                                     style=visibility:visible;animation-name:fadeInUp>
-                                    <div class="service_content text-center"><img loading=lazy alt=TOKAZ
+                                    <div class="service_content text-center">
+                                        <img loading=lazy alt=TOKAZ
                                             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yLjU1ODUgMjAuMTAzQzIuNDk1NSAyMC4xMzQgMi40MzU1IDIwLjE3MiAyLjM4MDUgMjAuMjE1TDIuMzY2NSAyMC4yMjdMMi4zNDE1IDIwLjI0OEwyLjMyODUgMjAuMjU5TDIuMzA5NSAyMC4yNzdMMi4yODM1IDIwLjMwM0wyLjI2ODUgMjAuMzE5TDIuMjUyNSAyMC4zMzdMMi4yNDQ1IDIwLjM0NUwyLjIzMzUgMjAuMzU4QzIuMDk1NSAyMC41MjMgMi4wMDk1IDIwLjczNCAyLjAwMTUgMjAuOTY0MUwyLjAwMDUgMjAuOTg0QzIuMDAwNSAyMC45ODkgMi4wMDA1IDIwLjk5NSAyLjAwMDUgMjFWMzIuMTcxMUMwLjgzNTQ5MSAzMi41ODIxIDAuMDAwNDg4MjgxIDMzLjY5NDEgMC4wMDA0ODgyODEgMzUuMDAwMVY0NS4wMDAxQzAuMDAwNDg4MjgxIDQ1LjU1MjEgMC40NDg0OSA0Ni4wMDAxIDEuMDAwNDkgNDYuMDAwMUg1LjAwMDUxQzUuNTUyNTEgNDYuMDAwMSA2LjAwMDUxIDQ1LjU1MjEgNi4wMDA1MSA0NS4wMDAxVjM0Ljk5ODFDNi4wMDA1MSAzMy42OTIxIDUuMTY1NTEgMzIuNTgxMSA0LjAwMDUgMzIuMTcwMVYyMi42NDUxTDEyLjAwMDUgMjYuNzkzMVY0Mi43MjIxQzEyLjAwMDUgNDQuNTQyMSAxMi45Mzk1IDQ2LjIzNDEgMTQuNDg0NSA0Ny4xOTcxQzE0LjQ4NTUgNDcuMTk4MSAxNC40ODY1IDQ3LjE5ODEgMTQuNDg3NSA0Ny4xOTkxQzI0LjgzMDYgNTMuNTg2MiAzNS4xNjU2IDUzLjU2NDIgNDUuNTAwNyA0Ny4xODUxQzQ1LjUwMDcgNDcuMTg1MSA0NS41MDE3IDQ3LjE4NTEgNDUuNTAyNyA0Ny4xODQxQzQ3LjA0NzcgNDYuMjI1MSA0Ny45ODY3IDQ0LjUzNTEgNDcuOTg2NyA0Mi43MTcxQzQ3Ljk5OTcgMzguMjQ0MSA0OC4wMDA3IDI4LjU5NTEgNDguMDAwNyAyNi43OTMxTDU3LjQ2MDcgMjEuODg4MUM1Ny43OTI3IDIxLjcxNjEgNTguMDAwNyAyMS4zNzMxIDU4LjAwMDcgMjFDNTguMDAwNyAyMC42MjcgNTcuNzkyNyAyMC4yODQgNTcuNDYwNyAyMC4xMTJMMzAuNDYwNiA2LjExMTk5QzMwLjE3MjYgNS45NjI5OSAyOS44Mjg2IDUuOTYyOTkgMjkuNTQwNiA2LjExMTk5TDIuNTU4NSAyMC4xMDNaTTE0LjAwMDUgMjcuODMwMVY0Mi43MjIxQzE0LjAwMDUgNDMuODUxMSAxNC41ODI1IDQ0LjkwMTEgMTUuNTQwNSA0NS40OTkxQzI1LjE4MTYgNTEuNDUyMiAzNC44MTQ2IDUxLjQzMDIgNDQuNDQ4NyA0NS40ODQxQzQ1LjQwNDcgNDQuODkwMSA0NS45ODY3IDQzLjg0NDEgNDUuOTg2NyA0Mi43MTcxQzQ1Ljk4NjcgNDIuNzE2MSA0NS45ODY3IDQyLjcxNTEgNDUuOTg2NyA0Mi43MTQxQzQ1Ljk5NzcgMzguODA3MSA0NS45OTk3IDMwLjk1ODEgNDYuMDAwNyAyNy44MzAxTDMwLjQ2MDYgMzUuODg4MUMzMC4xNzI2IDM2LjAzNzEgMjkuODI4NiAzNi4wMzcxIDI5LjU0MDYgMzUuODg4MUwxNC4wMDA1IDI3LjgzMDFaTTQuMDAwNSAzNC45OTgxVjQ0LjAwMDFIMi4wMDA1VjM1LjAwMDFDMi4wMDA1IDM0LjQ0ODEgMi40NDg1IDM0LjAwMDEgMy4wMDA1IDM0LjAwMDFIMy4wMDI1QzMuNTUzNSAzNC4wMDAxIDQuMDAwNSAzNC40NDcxIDQuMDAwNSAzNC45OTgxWk03LjEwMTUxIDIwSDI5LjAwMDZDMjkuNTUyNiAyMCAzMC4wMDA2IDIwLjQ0OCAzMC4wMDA2IDIxQzMwLjAwMDYgMjEuNTUyMSAyOS41NTI2IDIyLjAwMDEgMjkuMDAwNiAyMi4wMDAxSDcuMTAxNTFMMzAuMDAwNiAzMy44NzQxTDU0LjgyODcgMjFMMzAuMDAwNiA4LjEyNkw3LjEwMTUxIDIwWiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzEzNl80NDApIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50MF9saW5lYXJfMTM2XzQ0MCIgeDE9IjM1LjAwMDYiIHkxPSI0NC4wMDAxIiB4Mj0iMTQuMDAwNSIgeTI9IjE5IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMwMDUzRkEiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA5OUZBIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==">
                                         <h3 class=mb-2>Customer loyalty</h3>
                                         <p>Enabling clients to become high-performance traders
                                             and creating long-term relationships by being responsive and relevant,
-                                            and by consistently delivering top-notch service.</p><a rel=preload
+                                            and by consistently delivering top-notch service.</p><a 
+                                            style="color: var(--bs-blue);" 
+                                            rel=preload
                                             href=https://www.TOKAZ.com />Read More</a>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-12 col-lg-4 mb-5 wow fadeInRight animated"
                                     style=visibility:visible;animation-name:fadeInRight>
-                                    <div class="service_content text-center"><img loading=lazy alt=TOKAZ
+                                    <div class="service_content text-center">
+                                        <img loading=lazy alt=TOKAZ
                                             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjEiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MSA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMi4yODQ2IDM3LjcxNzFDMjEuMjE3NSAzNy45MDMxIDIwLjEyMDUgMzguMDAwMSAxOS4wMDE1IDM4LjAwMDFDOC41MTQ1IDM4LjAwMDEgMC4wMDE0NjQ4NCAyOS40ODYxIDAuMDAxNDY0ODQgMTkuMDAwMUMwLjAwMTQ2NDg0IDguNTE0MDMgOC41MTQ1IDAgMTkuMDAxNSAwQzI5LjQ4NzYgMCAzOC4wMDE2IDguNTE0MDMgMzguMDAxNiAxOS4wMDAxQzM4LjAwMTYgMjAuMTIwMSAzNy45MDM2IDIxLjIxNzEgMzcuNzE3NiAyMi4yODMxQzM4Ljc4MzYgMjIuMDk3MSAzOS44ODE2IDIyLjAwMDEgNDEuMDAxNiAyMi4wMDAxQzUxLjQ4NzcgMjIuMDAwMSA2MC4wMDE3IDMwLjUxNDEgNjAuMDAxNyA0MS4wMDAyQzYwLjAwMTcgNTEuNDg2MiA1MS40ODc3IDYwLjAwMDIgNDEuMDAxNiA2MC4wMDAyQzMwLjUxNDYgNjAuMDAwMiAyMi4wMDE1IDUxLjQ4NjIgMjIuMDAxNSA0MS4wMDAyQzIyLjAwMTUgMzkuODgwMSAyMi4wOTg2IDM4Ljc4MzEgMjIuMjg0NiAzNy43MTcxWk00MS4wMDE2IDI0LjAwMDFDNTAuMzgzNyAyNC4wMDAxIDU4LjAwMTcgMzEuNjE3MSA1OC4wMDE3IDQxLjAwMDJDNTguMDAxNyA1MC4zODMyIDUwLjM4MzcgNTguMDAwMiA0MS4wMDE2IDU4LjAwMDJDMzEuNjE4NiA1OC4wMDAyIDI0LjAwMTYgNTAuMzgzMiAyNC4wMDE2IDQxLjAwMDJDMjQuMDAxNiAzMS42MTcxIDMxLjYxODYgMjQuMDAwMSA0MS4wMDE2IDI0LjAwMDFaTTM2LjAwMTYgMzQuMDAwMUgzMy4wMDE2QzMyLjQ0OTYgMzQuMDAwMSAzMi4wMDE2IDMzLjU1MjEgMzIuMDAxNiAzMy4wMDAxQzMyLjAwMTYgMzIuNDQ4MSAzMi40NDk2IDMyLjAwMDEgMzMuMDAxNiAzMi4wMDAxSDM2LjAwMTZWMjkuMDAwMUMzNi4wMDE2IDI4LjQ0ODEgMzYuNDQ5NiAyOC4wMDAxIDM3LjAwMTYgMjguMDAwMUMzNy41NTI2IDI4LjAwMDEgMzguMDAxNiAyOC40NDgxIDM4LjAwMTYgMjkuMDAwMVYzMi4wMDAxSDQwLjAwMTZWMjkuMDAwMUM0MC4wMDE2IDI4LjQ0ODEgNDAuNDQ5NiAyOC4wMDAxIDQxLjAwMTYgMjguMDAwMUM0MS41NTI2IDI4LjAwMDEgNDIuMDAxNiAyOC40NDgxIDQyLjAwMTYgMjkuMDAwMVYzMi4wMDAxSDQzLjAwMzZDNDUuNzYzNiAzMi4wMDAxIDQ4LjAwMTYgMzQuMjM4MSA0OC4wMDE2IDM2Ljk5ODFWMzcuMDAyMUM0OC4wMDE2IDM4LjI3MjEgNDcuNTI3NiAzOS40MzExIDQ2Ljc0NzYgNDAuMzEzMUM0OC42NDc2IDQxLjAyMTIgNTAuMDAxNiA0Mi44NTEyIDUwLjAwMTYgNDQuOTk4MlY0NS4wMDAyQzUwLjAwMTYgNDYuMzI2MiA0OS40NzQ3IDQ3LjU5ODIgNDguNTM2NiA0OC41MzYyQzQ3LjU5ODYgNDkuNDczMiA0Ni4zMjc2IDUwLjAwMDIgNDUuMDAxNiA1MC4wMDAySDQyLjAwMTZWNTMuMDAwMkM0Mi4wMDE2IDUzLjU1MjIgNDEuNTUyNiA1NC4wMDAyIDQxLjAwMTYgNTQuMDAwMkM0MC40NDk2IDU0LjAwMDIgNDAuMDAxNiA1My41NTIyIDQwLjAwMTYgNTMuMDAwMlY1MC4wMDAySDM4LjAwMTZWNTMuMDAwMkMzOC4wMDE2IDUzLjU1MjIgMzcuNTUyNiA1NC4wMDAyIDM3LjAwMTYgNTQuMDAwMkMzNi40NDk2IDU0LjAwMDIgMzYuMDAxNiA1My41NTIyIDM2LjAwMTYgNTMuMDAwMlY1MC4wMDAySDMzLjAwMTZDMzIuNDQ5NiA1MC4wMDAyIDMyLjAwMTYgNDkuNTUyMiAzMi4wMDE2IDQ5LjAwMDJDMzIuMDAxNiA0OC40NDgyIDMyLjQ0OTYgNDguMDAwMiAzMy4wMDE2IDQ4LjAwMDJIMzYuMDAxNlYzNC4wMDAxWk0zOC4wMDE2IDQ4LjAwMDJWNDIuMDAwMkg0NS4wMDM2QzQ2LjY1ODYgNDIuMDAwMiA0OC4wMDE2IDQzLjM0MjIgNDguMDAxNiA0NC45OTgyVjQ1LjAwMDJDNDguMDAxNiA0NS43OTYyIDQ3LjY4NDYgNDYuNTU5MiA0Ny4xMjI2IDQ3LjEyMTJDNDYuNTU5NiA0Ny42ODQyIDQ1Ljc5NjYgNDguMDAwMiA0NS4wMDE2IDQ4LjAwMDJIMzguMDAxNlpNNDMuMDAzNiA0MC4wMDAxSDM4LjAwMTZWMzQuMDAwMUg0My4wMDM2QzQ0LjY1ODYgMzQuMDAwMSA0Ni4wMDE2IDM1LjM0MjEgNDYuMDAxNiAzNi45OTgxVjM3LjAwMjFDNDYuMDAxNiAzOC42NTgxIDQ0LjY1ODYgNDAuMDAwMSA0My4wMDM2IDQwLjAwMDFaTTM1LjU3NjYgMjIuNzg3MUMzNS44NTQ2IDIxLjU2OTEgMzYuMDAxNiAyMC4zMDExIDM2LjAwMTYgMTkuMDAwMUMzNi4wMDE2IDkuNjE3MDMgMjguMzgzNiAyLjAwMDAxIDE5LjAwMTUgMi4wMDAwMUM5LjYxODUgMi4wMDAwMSAyLjAwMTQ3IDkuNjE3MDMgMi4wMDE0NyAxOS4wMDAxQzIuMDAxNDcgMjguMzgzMSA5LjYxODUgMzYuMDAwMSAxOS4wMDE1IDM2LjAwMDFDMjAuMzAyNSAzNi4wMDAxIDIxLjU3MDUgMzUuODUzMSAyMi43ODc1IDM1LjU3NjFDMjQuNjEyNiAyOS40NDgxIDI5LjQ0ODYgMjQuNjEyMSAzNS41NzY2IDIyLjc4NzFaTTE4LjAwMTUgMTBIMTcuMTI5NUwxNi40NzM1IDEwLjAyN0wxNS42NjI1IDEwLjE4MUwxNC45NDI1IDEwLjQ0MkwxNC4yMjk1IDEwLjgzN0wxMy42MTk1IDExLjMxNkwxMy4wODg1IDExLjg4NUwxMi42MzM1IDEyLjU2M0wxMi4zMjU1IDEzLjIyMkwxMi4xMjk1IDEzLjg2OTFMMTIuMDIwNSAxNC41NTAxTDEyLjAwMTUgMTUuMDAyMUMxMi4wMDE1IDE3Ljc2MjEgMTQuMjM4NSAyMC4wMDAxIDE2Ljk5OTUgMjAuMDAwMUgyMS4wMDE1QzIxLjc5NjUgMjAuMDAwMSAyMi41NTk2IDIwLjMxNjEgMjMuMTIyNiAyMC44NzkxQzIzLjY4NDYgMjEuNDQxMSAyNC4wMDE2IDIyLjIwNDEgMjQuMDAxNiAyMy4wMDAxVjIzLjAwMjFDMjQuMDAxNiAyNC42NDUxIDIyLjY3OTUgMjUuOTc5MSAyMS4wNDE1IDI2LjAwMDFIMTcuMDAxNUMxNi4yMDU1IDI2LjAwMDEgMTUuNDQyNSAyNS42ODQxIDE0Ljg3OTUgMjUuMTIxMUMxNC4zMTc1IDI0LjU1OTEgMTQuMDAxNSAyMy43OTYxIDE0LjAwMTUgMjMuMDAwMVYyMy4wMDIxTDEzLjk5ODUgMjIuOTM3MUMxMy45ODQ1IDIyLjYzNzEgMTMuODYyNSAyMi40MzIxIDEzLjcwODUgMjIuMjkzMUMxMy41Mjc1IDIyLjExMjEgMTMuMjc3NSAyMi4wMDAxIDEzLjAwMTUgMjIuMDAwMUMxMy4wMDE1IDIyLjAwMDEgMTIuMDIxNSAyMi4wNjExIDEyLjAwMTUgMjIuOTc0MVYyMy4wMDIxQzEyLjAwMTUgMjUuNzYyMSAxNC4yMzg1IDI4LjAwMDEgMTYuOTk5NSAyOC4wMDAxSDE4LjAwMTVWMzEuMDAwMUMxOC4wMDE1IDMxLjU1MjEgMTguNDQ5NSAzMi4wMDAxIDE5LjAwMTUgMzIuMDAwMUMxOS41NTI1IDMyLjAwMDEgMjAuMDAxNSAzMS41NTIxIDIwLjAwMTUgMzEuMDAwMVYyNy45OTkxSDIxLjA4MzVMMjEuNzgzNSAyNy45MzkxTDIyLjU0NzYgMjcuNzU3MUwyMy4yNzg1IDI3LjQ1MzFMMjMuOTY4NSAyNy4wMjYxTDI0LjU1NDYgMjYuNTE4MUwyNS4wNTk2IDI1LjkyMzFMMjUuNDgxNiAyNS4yMjMxTDI1Ljc1NzYgMjQuNTQ3MUwyNS45MjI2IDIzLjg4NzFMMjUuOTk5NiAyMy4xMzExTDI2LjAwMTYgMjIuOTk4MUMyNi4wMDE2IDIwLjIzODEgMjMuNzYzNiAxOC4wMDAxIDIxLjAwMzUgMTguMDAwMUgxNy4wMDE1QzE2LjIwNTUgMTguMDAwMSAxNS40NDI1IDE3LjY4NDEgMTQuODc5NSAxNy4xMjExQzE0LjMxNzUgMTYuNTU5MSAxNC4wMDE1IDE1Ljc5NjEgMTQuMDAxNSAxNS4wMDAxVjE0Ljk5ODFDMTQuMDAxNSAxMy4zNTUgMTUuMzIyNSAxMi4wMjEgMTYuOTYwNSAxMkgyMS4wMDE1QzIxLjc5NjUgMTIgMjIuNTU5NiAxMi4zMTYgMjMuMTIyNiAxMi44NzlDMjMuNjg0NiAxMy40NDEgMjQuMDAxNiAxNC4yMDQxIDI0LjAwMTYgMTUuMDAwMVYxNC45OTgxTDI0LjAwMzYgMTUuMDYzMUMyNC4wMTg2IDE1LjM2MzEgMjQuMTM5NSAxNS41NjgxIDI0LjI5MzUgMTUuNzA3MUMyNC40NzQ1IDE1Ljg4ODEgMjQuNzI0NiAxNi4wMDAxIDI1LjAwMTYgMTYuMDAwMUMyNS4wMDE2IDE2LjAwMDEgMjUuOTgwNiAxNS45MzkxIDI2LjAwMDYgMTUuMDI2MUwyNi4wMDE2IDE0Ljk5ODFDMjYuMDAxNiAxMi4yMzggMjMuNzYzNiAxMCAyMS4wMDM1IDEwSDIwLjAwMTVWNy4wMDAwM0MyMC4wMDE1IDYuNDQ4MDIgMTkuNTUyNSA2LjAwMDAyIDE5LjAwMTUgNi4wMDAwMkMxOC40NDk1IDYuMDAwMDIgMTguMDAxNSA2LjQ0ODAyIDE4LjAwMTUgNy4wMDAwM1YxMFoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8xMzZfNDQ0KSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzEzNl80NDQiIHgxPSIxOC4wMDE1IiB5MT0iMjMuMDAwMSIgeDI9IjQ3LjAwMTYiIHkyPSI0MS4wMDAyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiMwMDk5RkEiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMDA1M0ZBIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==">
                                         <h3 class=mb-2>Truly social</h3>
                                         <p>We believe in the community. It drives us, it inspires
                                             us. Сomfort and truly social interaction among our customers is our top
-                                            priority.</p><a rel=preload href=https://www.TOKAZ.com />Read
+                                            priority.</p><a style="color: var(--bs-blue);"  rel=preload href=https://www.TOKAZ.com />Read
                                         More</a>
                                     </div>
                                 </div>
@@ -6649,18 +6657,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                         <p>Attracting, developing and retaining the best talent
                                             for our project, challenging our people, demonstrating a "can-do"
                                             attitude and fostering a collaborative and supportive environment.</p><a
+                                            style="color: var(--bs-blue);" 
                                             rel=preload href=https://www.TOKAZ.com />Read More</a>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-12 col-lg-4 feasec wow fadeInDown animated"
                                     style=visibility:visible;animation-name:fadeInDown>
-                                    <div class="service_content text-center"><img loading=lazy alt=TOKAZ
+                                    <div class="service_content text-center">
+                                        <img loading=lazy alt=TOKAZ
                                             src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xOC41OTQxIDYuNDI2ODRDMTguNTkxMSA2LjQyNTg0IDE4LjU4NzEgNi40MjU4NCAxOC41ODMxIDYuNDI1ODRDMTYuMjkxMSA2LjI5ODg0IDEzLjg1NTEgNy4wMzA4NCAxMS44OTcxIDguNjc0ODRDOS45MzkwOSAxMC4zMTc4IDguNzk1MTEgMTIuNTg4OCA4LjUyMTExIDE0Ljg2NzhDOC41MjAxMSAxNC44NzE4IDguNTIwMSAxNC44NzU4IDguNTE5MSAxNC44Nzk4QzguMzE5MSAxNi43Mzg4IDcuMzQ0MTEgMTguNDI3OCA1LjgzNTExIDE5LjUzMDhDNS44MzIxMSAxOS41MzI4IDUuODI5MSAxOS41MzQ4IDUuODI1MSAxOS41Mzc4QzMuOTg4MSAyMC45MTM4IDIuNTkzMTEgMjMuMDM5OCAyLjE0OTExIDI1LjU1NzhDMS43MDUxMSAyOC4wNzU4IDIuMjg5MDkgMzAuNTUwOCAzLjU0NDA5IDMyLjQ3MjhDMy41NDYwOSAzMi40NzU4IDMuNTQ4MTEgMzIuNDc4OCAzLjU1MTExIDMyLjQ4MjhDNC41OTIxMSAzNC4wMzU4IDQuOTMxMSAzNS45NTQ4IDQuNDg0MSAzNy43NzA4QzQuNDgzMSAzNy43NzQ4IDQuNDgyMTEgMzcuNzc4OCA0LjQ4MTExIDM3Ljc4MThDMy45NTgxMSA0MC4wMTY4IDQuMjU2MDkgNDIuNTQyOCA1LjUzNTA5IDQ0Ljc1NjhDNi44MTMwOSA0Ni45NzA4IDguODUxMDkgNDguNDkxOCAxMS4wNDgxIDQ5LjE1NjhDMTEuMDUxMSA0OS4xNTg4IDExLjA1NTEgNDkuMTU5OCAxMS4wNTkxIDQ5LjE2MDhDMTIuODU1MSA0OS42ODA4IDE0LjM0OTEgNTAuOTMzOCAxNS4xNzMxIDUyLjYxMThDMTUuMTc1MSA1Mi42MTU4IDE1LjE3NzEgNTIuNjE4OCAxNS4xNzgxIDUyLjYyMjhDMTYuMjE1MSA1NC42NzA4IDE4LjA2NzEgNTYuNDEzOCAyMC40NjkxIDU3LjI4NzhDMjIuODcxMSA1OC4xNjI4IDI1LjQxMDEgNTguMDE3OCAyNy41MjExIDU3LjExNThDMjcuNTI0MSA1Ny4xMTM4IDI3LjUyODEgNTcuMTExOCAyNy41MzIxIDU3LjExMDhDMjkuMjQyMSA1Ni4zNTQ4IDMxLjE5MTEgNTYuMzU0OCAzMi45MDIxIDU3LjEwOThDMzIuOTA1MSA1Ny4xMTE4IDMyLjkwOTEgNTcuMTEyOCAzMi45MTIxIDU3LjExNDhDMzUuMDIzMSA1OC4wMTc4IDM3LjU2MjEgNTguMTYyOCAzOS45NjQxIDU3LjI4NzhDNDIuMzY2MSA1Ni40MTM4IDQ0LjIxODEgNTQuNjcwOCA0NS4yNTUxIDUyLjYyMjhDNDUuMjU3MSA1Mi42MTk4IDQ1LjI1OTEgNTIuNjE1OCA0NS4yNjAxIDUyLjYxMThDNDYuMDg0MSA1MC45MzM4IDQ3LjU3ODEgNDkuNjgwOCA0OS4zNzMxIDQ5LjE1OThDNDkuMzc3MSA0OS4xNTg4IDQ5LjM4MTEgNDkuMTU3OCA0OS4zODUxIDQ5LjE1NjhDNTEuNTgyMSA0OC40OTE4IDUzLjYyMDEgNDYuOTcwOCA1NC44OTgxIDQ0Ljc1NjhDNTYuMTc2MSA0Mi41NDI4IDU2LjQ3NDEgNDAuMDE3OCA1NS45NTMxIDM3Ljc4MThDNTUuOTUyMSAzNy43Nzc4IDU1Ljk1MTEgMzcuNzczOCA1NS45NTAxIDM3Ljc2OThDNTUuNTAyMSAzNS45NTQ4IDU1Ljg0MTEgMzQuMDM0OCA1Ni44ODIxIDMyLjQ4MThDNTYuODg0MSAzMi40Nzg4IDU2Ljg4NjEgMzIuNDc1OCA1Ni44ODgxIDMyLjQ3MThDNTguMTQ0MSAzMC41NTA4IDU4LjcyNzEgMjguMDc1OCA1OC4yODMxIDI1LjU1NzhDNTcuODQwMSAyMy4wMzk4IDU2LjQ0NTEgMjAuOTEzOCA1NC42MDgxIDE5LjUzNjhDNTQuNjA1MSAxOS41MzQ4IDU0LjYwMTEgMTkuNTMyOCA1NC41OTgxIDE5LjUyOThDNTMuMDg5MSAxOC40MjY4IDUyLjExNDEgMTYuNzM4OCA1MS45MTMxIDE0Ljg3OThDNTEuOTEyMSAxNC44NzU4IDUxLjkxMjEgMTQuODcxOCA1MS45MTExIDE0Ljg2NzhDNTEuNjM4MSAxMi41ODg4IDUwLjQ5NDEgMTAuMzE3OCA0OC41MzYxIDguNjc0ODRDNDYuNTc4MSA3LjAzMTg0IDQ0LjE0MjEgNi4yOTg4NCA0MS44NTAxIDYuNDI0ODRDNDEuODQ2MSA2LjQyNDg0IDQxLjg0MjEgNi40MjU4NCA0MS44MzgxIDYuNDI1ODRDMzkuOTczMSA2LjU1MDg0IDM4LjE0MTEgNS44ODQ4NCAzNi43OTIxIDQuNTg5ODRDMzYuNzg5MSA0LjU4Njg0IDM2Ljc4NjEgNC41ODQ4NCAzNi43ODQxIDQuNTgxODRDMzUuMTA5MSAzLjAxMTg0IDMyLjc3MzEgMi4wMDY4NCAzMC4yMTYxIDIuMDA2ODRDMjcuNjYwMSAyLjAwNjg0IDI1LjMyNDEgMy4wMTE4NCAyMy42NDkxIDQuNTgwODRDMjMuNjQ2MSA0LjU4Mzg0IDIzLjY0MzEgNC41ODY4NCAyMy42NDAxIDQuNTg5ODRDMjIuMjkyMSA1Ljg4NDg0IDIwLjQ2MDEgNi41NTE4NCAxOC41OTQxIDYuNDI2ODRaTTE4LjQ3MDEgOC40MjI4NEMyMC44OTExIDguNTgxODQgMjMuMjY3MSA3LjcxNjg0IDI1LjAxOTEgNi4wMzc4NEMyNi4zNDQxIDQuNzk2ODQgMjguMTk0MSA0LjAwNjg0IDMwLjIxNjEgNC4wMDY4NEMzMi4yMzkxIDQuMDA2ODQgMzQuMDg4MSA0Ljc5Njg0IDM1LjQxMzEgNi4wMzg4NEMzNy4xNjUxIDcuNzE2ODQgMzkuNTQyMSA4LjU4MTg0IDQxLjk2MzEgOC40MjE4NEM0My43NzYxIDguMzIyODQgNDUuNzAxMSA4LjkwNjg0IDQ3LjI1MDEgMTAuMjA2OEM0OC43OTkxIDExLjUwNjggNDkuNzA4MSAxMy4zMDA4IDQ5LjkyNTEgMTUuMTAzOEM1MC4xODgxIDE3LjUxNTggNTEuNDUzMSAxOS43MDU4IDUzLjQxMTEgMjEuMTM4OEM1NC44NjMxIDIyLjIyODggNTUuOTYzMSAyMy45MTM4IDU2LjMxNDEgMjUuOTA0OEM1Ni42NjUxIDI3Ljg5NjggNTYuMjA4MSAyOS44NTU4IDU1LjIxNTEgMzEuMzc1OEM1My44NjYxIDMzLjM5MjggNTMuNDI4MSAzNS44ODM4IDU0LjAwNjEgMzguMjM5OEM1NC40MTgxIDQwLjAwODggNTQuMTc3MSA0Mi4wMDU4IDUzLjE2NjEgNDMuNzU2OEM1Mi4xNTUxIDQ1LjUwNzggNTAuNTQ2MSA0Ni43MTQ4IDQ4LjgwODEgNDcuMjQxOEM0Ni40NzgxIDQ3LjkxOTggNDQuNTQxMSA0OS41NDU4IDQzLjQ2OTEgNTEuNzIxOEM0Mi42NDgxIDUzLjM0MTggNDEuMTgwMSA1NC43MTY4IDM5LjI4MDEgNTUuNDA4OEMzNy4zODAxIDU2LjEwMDggMzUuMzcxMSA1NS45OTA4IDMzLjcwMTEgNTUuMjc2OEMzMS40ODExIDU0LjI5ODggMjguOTUyMSA1NC4yOTg4IDI2LjczMjEgNTUuMjc3OEMyNS4wNjIxIDU1Ljk5MDggMjMuMDUzMSA1Ni4xMDA4IDIxLjE1MzEgNTUuNDA4OEMxOS4yNTMxIDU0LjcxNjggMTcuNzg1MSA1My4zNDE4IDE2Ljk2NDEgNTEuNzIxOEMxNS44OTIxIDQ5LjU0NTggMTMuOTU0MSA0Ny45MTk4IDExLjYyNTEgNDcuMjQyOEM5Ljg4NzEyIDQ2LjcxNDggOC4yNzgxMiA0NS41MDc4IDcuMjY3MTIgNDMuNzU2OEM2LjI1NjEyIDQyLjAwNTggNi4wMTUxIDQwLjAwODggNi40MjgxIDM4LjIzOThDNy4wMDYxIDM1Ljg4MzggNi41NjYxIDMzLjM5MjggNS4yMTcxIDMxLjM3NjhDNC4yMjUxIDI5Ljg1NTggMy43NjgxMSAyNy44OTY4IDQuMTE5MTEgMjUuOTA0OEM0LjQ3MDExIDIzLjkxMzggNS41NzAwOSAyMi4yMjg4IDcuMDIyMDkgMjEuMTM5OEM4Ljk4MDA5IDE5LjcwNTggMTAuMjQ0MSAxNy41MTU4IDEwLjUwNzEgMTUuMTAzOEMxMC43MjQxIDEzLjMwMDggMTEuNjMzMSAxMS41MDY4IDEzLjE4MzEgMTAuMjA2OEMxNC43MzIxIDguOTA2ODQgMTYuNjU3MSA4LjMyMjg0IDE4LjQ3MDEgOC40MjI4NFpNMzAuMDAyMSAxMC4wMDY4QzE4Ljk2MzEgMTAuMDA2OCAxMC4wMDIxIDE4Ljk2ODggMTAuMDAyMSAzMC4wMDY4QzEwLjAwMjEgNDEuMDQ0OCAxOC45NjMxIDUwLjAwNjggMzAuMDAyMSA1MC4wMDY4QzQxLjA0MDEgNTAuMDA2OCA1MC4wMDIxIDQxLjA0NDggNTAuMDAyMSAzMC4wMDY4QzUwLjAwMjEgMTguOTY4OCA0MS4wNDAxIDEwLjAwNjggMzAuMDAyMSAxMC4wMDY4Wk0zMC4wMDIxIDEyLjAwNjhDMzkuOTM2MSAxMi4wMDY4IDQ4LjAwMjEgMjAuMDcyOCA0OC4wMDIxIDMwLjAwNjhDNDguMDAyMSAzOS45NDA4IDM5LjkzNjEgNDguMDA2OCAzMC4wMDIxIDQ4LjAwNjhDMjAuMDY3MSA0OC4wMDY4IDEyLjAwMjEgMzkuOTQwOCAxMi4wMDIxIDMwLjAwNjhDMTIuMDAyMSAyMC4wNzI4IDIwLjA2NzEgMTIuMDA2OCAzMC4wMDIxIDEyLjAwNjhaTTI4LjE4MDEgMTcuMTAxOEwyNC45MzQxIDIzLjMwMThMMTguMDM0MSAyNC40NzM4QzE3LjI4MDEgMjQuNjAxOCAxNi42NTkxIDI1LjEzNzggMTYuNDIzMSAyNS44NjU4QzE2LjE4NjEgMjYuNTkyOCAxNi4zNzMxIDI3LjM5MTggMTYuOTA4MSAyNy45Mzg4TDIxLjgwMjEgMzIuOTQxOEwyMC43ODQxIDM5Ljg2NThDMjAuNjczMSA0MC42MjI4IDIwLjk5MTEgNDEuMzc4OCAyMS42MDkxIDQxLjgyODhDMjIuMjI4MSA0Mi4yNzc4IDIzLjA0NjEgNDIuMzQ2OCAyMy43MzExIDQyLjAwNjhMMzAuMDAyMSAzOC44OTk4TDM2LjI3MjEgNDIuMDA2OEMzNi45NTgxIDQyLjM0NjggMzcuNzc1MSA0Mi4yNzc4IDM4LjM5NDEgNDEuODI4OEMzOS4wMTMxIDQxLjM3ODggMzkuMzMxMSA0MC42MjI4IDM5LjIyMDEgMzkuODY1OEwzOC4yMDIxIDMyLjk0MThMNDMuMDk1MSAyNy45Mzg4QzQzLjYzMDEgMjcuMzkxOCA0My44MTcxIDI2LjU5MjggNDMuNTgxMSAyNS44NjU4QzQzLjM0NDEgMjUuMTM3OCA0Mi43MjMxIDI0LjYwMTggNDEuOTY5MSAyNC40NzM4TDM1LjA3MDEgMjMuMzAxOEwzMS44MjMxIDE3LjEwMThDMzEuNDY4MSAxNi40MjQ4IDMwLjc2NzEgMTUuOTk5OCAzMC4wMDIxIDE1Ljk5OThDMjkuMjM3MSAxNS45OTk4IDI4LjUzNTEgMTYuNDI0OCAyOC4xODAxIDE3LjEwMThaTTI2LjQ3NjEgMjQuNjY4OEwyOS45NTIxIDE4LjAyOThDMjkuOTYyMSAxOC4wMTE4IDI5Ljk4MTEgMTcuOTk5OCAzMC4wMDIxIDE3Ljk5OThDMzAuMDIzMSAxNy45OTk4IDMwLjA0MjEgMTguMDExOCAzMC4wNTExIDE4LjAyOThMMzMuNTI4MSAyNC42Njg4QzMzLjY3MzEgMjQuOTQ1OCAzMy45MzgxIDI1LjEzODggMzQuMjQ2MSAyNS4xOTA4TDQxLjYzNTEgMjYuNDQ1OEM0MS42NTUxIDI2LjQ0ODggNDEuNjcyMSAyNi40NjM4IDQxLjY3ODEgMjYuNDgzOEM0MS42ODUxIDI2LjUwMzggNDEuNjgwMSAyNi41MjQ4IDQxLjY2NTEgMjYuNTM5OEwzNi40MjUxIDMxLjg5NzhDMzYuMjA3MSAzMi4xMjA4IDM2LjEwNjEgMzIuNDMzOCAzNi4xNTExIDMyLjc0MjhMMzcuMjQxMSA0MC4xNTY4QzM3LjI0NDEgNDAuMTc3OCAzNy4yMzUxIDQwLjE5NzggMzcuMjE4MSA0MC4yMTA4QzM3LjIwMTEgNDAuMjIyOCAzNy4xNzkxIDQwLjIyNDggMzcuMTYwMSA0MC4yMTQ4TDMwLjQ0NjEgMzYuODg3OEMzMC4xNjYxIDM2Ljc0ODggMjkuODM3MSAzNi43NDg4IDI5LjU1ODEgMzYuODg3OEwyMi44NDMxIDQwLjIxNDhDMjIuODI0MSA0MC4yMjQ4IDIyLjgwMjEgNDAuMjIyOCAyMi43ODUxIDQwLjIxMDhDMjIuNzY4MSA0MC4xOTc4IDIyLjc2MDEgNDAuMTc3OCAyMi43NjMxIDQwLjE1NjhMMjMuODUyMSAzMi43NDI4QzIzLjg5ODEgMzIuNDMzOCAyMy43OTYxIDMyLjEyMDggMjMuNTc4MSAzMS44OTc4TDE4LjMzODEgMjYuNTM5OEMxOC4zMjQxIDI2LjUyNDggMTguMzE5MSAyNi41MDM4IDE4LjMyNTEgMjYuNDgzOEMxOC4zMzExIDI2LjQ2MzggMTguMzQ4MSAyNi40NDg4IDE4LjM2OTEgMjYuNDQ1OEwyNS43NTcxIDI1LjE5MDhDMjYuMDY1MSAyNS4xMzg4IDI2LjMzMTEgMjQuOTQ1OCAyNi40NzYxIDI0LjY2ODhaIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXJfMTM2XzQ1OSkiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl8xMzZfNDU5IiB4MT0iMTcuMDAyMSIgeTE9IjE5LjAwNjgiIHgyPSI0OC43ODAzIiB5Mj0iNDkuMDA2OCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMDA5OUZBIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzAwNTNGQSIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=">
                                         <h3 class=mb-2>Integrity</h3>
                                         <p>Personal integrity and legal compliance are essential
                                             to our operation as a global enterprise. We're committed to
                                             international policies and practices that benefit our company and its
-                                            clients. </p><a rel=preload href=https://www.TOKAZ.com />Read More</a>
+                                            clients. </p><a style="color: var(--bs-blue);"  rel=preload href=https://www.TOKAZ.com />Read More</a>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-12 col-lg-4 wow fadeInRight animated"
@@ -6670,7 +6680,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                         <h3 class=mb-2>Shared success</h3>
                                         <p>Our mission is to bring easy and accessible trading to
                                             customers worldwide, making possible to benefit from financial markets
-                                            anytime and anywhere.</p><a rel=preload href=# />Read More</a>
+                                            anytime and anywhere.</p><a style="color: var(--bs-blue);"  rel=preload href=# />Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -7022,7 +7032,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                                         style=visibility:visible;animation-name:fadeInUp>
                                                         <li><a rel=preload href={% url 'about' %}>About us</a>
                                                         <li><a rel=preload href="{% url 'features' %}">Features</a>
-                                                        <li><a rel=preload href=#>Contact
+                                                        <li><a rel=preload href="{% url 'contact' %}">Contact
                                                                 Us</a>
                                                     </ul>
                                                 </div>
@@ -7048,8 +7058,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                                     <ul class="list-unstyled footer-links wow fadeInUp animated"
                                                         style=visibility:visible;animation-name:fadeInUp>
                                                         <li>
-                                                            <p class="mb-0 fw-600">Email</p><a rel=preload
-                                                                href=#>tokaz.trade@gmail.com</a>
+                                                            <p class="mb-0 fw-600">Email</p><p>tokaz.trade1@gmail.com</p>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -7061,37 +7070,28 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                                         style=visibility:visible;animation-name:fadeInDown>Learn</h5>
                                                     <ul class="list-unstyled footer-links wow fadeInUp animated"
                                                         style=visibility:visible;animation-name:fadeInUp>
-                                                        <li><a rel=preload href=#>Digital
-                                                                Assets</a>
-                                                        <li><a rel=preload href=#>Blockchain</a>
-                                                        <li><a rel=preload href=#>HighFrequency</a>
-                                                        <li><a rel=preload href=#>Glossary</a>
-                                                        
-                                                        <li><a rel=preload href=#>Proof of
-                                                                Stake/Work</a>
-                                                        <li><a rel=preload href=#>Orderflow
-                                                                Trading</a>
+                                                        <li><a rel=preload href=#>Trading</a>
+                                                        <li><a rel=preload href=#>Copy Trading</a>
+
+                                                            
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-lg-4">
                                                 <div class="footer-widget mb-5 mb-lg-0">
                                                     <h5 class="widget-title wow fadeInDown animated"
-                                                        style=visibility:visible;animation-name:fadeInDown>Service</h5>
+                                                        style=visibility:visible;animation-name:fadeInDown>Services</h5>
                                                     <ul class="list-unstyled footer-links wow fadeInUp animated"
                                                         style=visibility:visible;animation-name:fadeInUp>
-                                                        <li><a rel=preload href="https://www.tradeans.in/">Affiliate
-                                                                Marketing</a>
-                                                        <li><a rel=preload href=#>TOKAZ
-                                                                Earn</a>
-                                                        <li><a rel=preload href=#>Trade</a>
-                                                        <li><a rel=preload href=#>Education</a>
-                                                        <li><a rel=preload href=#>TOKAZ
-                                                                Public API</a>
+                                                        <li> <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check"><span>Copy Trading</span></li>
+                                                        <li> <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check"><span>Account Management</span></li>
+                                                        <li> <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check"><span>AI Trading</span></li>
+                                                        <li> <img loading="lazy" src="{% static 'media/check.png' %}" width="15" alt="check">Tech Services</li>
+                                                        
                                                     </ul>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4 col-lg-4">
+                                            {% comment %} <div class="col-md-4 col-lg-4">
                                                 <div class="footer-widget mb-5 mb-lg-0">
                                                     <h5 class="widget-title wow fadeInDown animated"
                                                         style=visibility:visible;animation-name:fadeInDown>Legal</h5>
@@ -7109,31 +7109,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                                         <li><a rel=preload href=#>Eligiblity</a>
                                                     </ul>
                                                 </div>
-                                            </div>
+                                            </div> {% endcomment %}
                                         </div>
                                     </div>
                                 </div>
-                                <div class=footer-bot-cont><span class=fs-5>Disclaimer and Risk Warning</span>
-                                    <p class=disclaimer_content> The information contained in this website is presented
-                                        on
-                                        an "as is" basis, with no representation or warranty. TOKAZ assumes no
-                                        responsibility or liability for any losses you may incur from the content of
-                                        this
-                                        site.  assets are not legal tender and are subject to change without prior
-                                        notice of the price, as the market may fluctuate based on supply and demand.
-                                        This
-                                        means an individual does not guarantee the value of the assets. NFTs
-                                        are
-                                        currently unregulated and can be risky. Kindly ensure you undergo sufficient
-                                        risk
-                                        assessment while trading cryptocurrencies, as they are highly volatile. Unless
-                                        otherwise required by law, in no event shall the owners of, or contributors to,
-                                        the
-                                        website be liable for any damages of any kind, including loss of profits or loss
-                                        of
-                                        data emerging out of or in any way connected with the use of the website. Please
-                                        read our full disclaimer details, Terms of Use, and Risk Warning for more
-                                        information.</p> 
+                                <div class=footer-bot-cont><span class=fs-5>Risk Disclosure</span>
+                                    <p class=disclaimer_content> Trading in Binary Sector (“Forex”) on margins entails high risk and is not suitable for all investors. Past performance is not an indication of future results. In this case, as well, the high degree of leverage can act both against you and for you. Before you decide to invest in Binary Fixed TimeFrame Trading , you should carefully assess your investment objectives, experience, financial possibilities and willingness to take risks. There is a possibility that you will lose your initial investment partially or completely. Therefore, you should not invest any funds that you cannot afford to completely lose in a worst-case scenario. You should also be aware of all the risks associated with Binary trading and contact an independent financial advisor in case of doubt.</p> 
 
                                         
 
@@ -7142,7 +7123,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
                             </div>
                         </div>
-                        <p style="display: flex !important; justify-content: center !important; align-items: center !important;">© Copyright 2024 TOKAZ</p>
+                        <p style="display: flex !important; justify-content: center !important; align-items: center !important;">Copyright ©2024 tokaz.in. All rights reserved</p>
  
                         
 

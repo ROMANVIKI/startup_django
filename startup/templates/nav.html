@@ -25,7 +25,7 @@
   }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top opacity-9">
   <div class="container"> <!-- Centering content using container -->
     <!-- Brand -->
     <a class="navbar-brand custom-font-weight-bold" href="{% url 'home' %}"><img width="70"  src="{% static 'media/Logo.png' %}" alt=""></a>
@@ -44,6 +44,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'enquiry' %}">Enquiry</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'contact' %}">Contact</a>
