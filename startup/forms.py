@@ -35,7 +35,7 @@ class CheckoutForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(CheckoutForm, self).__init__(*args, **kwargs)
-        self.fields['upi_id'].widget.attrs['placeholder'] = 'UPI ID'
+        self.fields['upi_id'].widget.attrs['placeholder'] = 'UTR ID'
         self.fields['package_price'].widget.attrs['placeholder'] = 'Select Package Price'
         self.fields['transaction_id'].widget.attrs['placeholder'] = 'Transaction ID'
         self.fields['first_name'].widget.attrs['placeholder'] = 'First Name'
