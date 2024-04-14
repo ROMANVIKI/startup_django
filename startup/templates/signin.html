@@ -191,7 +191,7 @@
             <div class="title_container">
                 <h2>WELCOME BACK TO TOKAZ!.</h2>
             </div>
-            <form method="post" action="{% url 'signin' %}" autocomplete="off">
+            <form method="post" action="{% url 'login' %}" autocomplete="off">
                 {% csrf_token %}
                 <div class="input_field">
                     {{ form.username }}
@@ -201,7 +201,7 @@
                 </div>
                 <input type="submit" class="register-btn" value="SignIn">
                 <br><br>
-                <p>Don't You have an account? <a style="text-decoration: none !important;" href="{% url 'signup' %}">SignUp</a></p>
+                <p>Don't You have an account? <a style="text-decoration: none !important;" href="{% url 'register' %}">Register</a></p>
             </form>
         </div>
         <div class="image_container">

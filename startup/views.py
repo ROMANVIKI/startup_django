@@ -44,7 +44,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .context_processors import username_data
 # Create your views here.
 
-def signin(request):
+def login(request):
     if request.method == 'POST':
         form = SignInForm(request.POST)
         if form.is_valid():
@@ -67,9 +67,7 @@ def signin(request):
 
 
 
-# class Home(TemplateView):
-    
-#     template_name = 'main.html'
+
 
 
 def home(request):
@@ -127,7 +125,7 @@ class Enquiry(FormView):
 
 
 
-def signup(request):
+def register(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -142,8 +140,7 @@ def signup(request):
 
 
 
-# def dashborad(request):
-#     return render(request, 'nav.html')
+
 
 
 
@@ -205,62 +202,9 @@ def check_password(request):
 
 # Create your views here.
 
-class ProductListView(ListView, LoginRequiredMixin):
-    login_url = '/sigin/'
-    model = Product
-    template_name = 'list.html'
 
 
 
-
-
-
-
-# Initialize the Razorpay client with your API key and secret
-# api_key = settings.RAZOR_PAY_KEY
-# api_secret = settings.RAZOR_PAY_KEY_SECRET
-# client = Client(auth=(api_key, api_secret))
-
-# def payment_process(request):
-#     if request.method == 'POST':
-#         order_amount = request.price  # Change this to the actual amount
-        
-#         currency = "INR"
-        
-#         try:
-#             # Create an order using the Razorpay client
-#             order = client.order.create(dict(amount=order_amount, currency=currency))
-#             context = {
-#                 'order_id': order['id'],
-#                 'amount': order['amount'],
-#                 'key_id': api_key
-#             }
-#             Purchase.save()
-#             return JsonResponse(context)
-#         except Exception as e:
-#             # Handle any errors that occur during order creation
-#             return JsonResponse({'error': str(e)}, status=500)
-#     else:
-#         # Handle non-POST requests appropriately
-#         return JsonResponse({'error': 'Invalid request method'}, status=405)
-
-
-
-
-# @login_required(login_url='/signin')
-# def product_detail(request, slug):
-#     product = get_object_or_404(Product, slug=slug)
-#     api_key = settings.RAZOR_PAY_KEY
-#     return render(request, 'detail.html', {'product': product, 'api_key': api_key})
-
-
-
-
-
-
-
-def invoice(request):
-    return render(request, 'invoice.html')
 
 
 

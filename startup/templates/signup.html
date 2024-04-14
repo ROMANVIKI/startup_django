@@ -192,9 +192,9 @@ tell it
       
         <div class="form_wrapper">
             <div class="title_container">
-                <h2>WELCOME TO TOKAZ <br> SIGNUP TO CONTINUE!.</h2>
+                <h2>WELCOME TO TOKAZ <br> FOR REGISTRATION.</h2>
             </div> <br>
-            <form method="post" action="{% url 'signup' %}" autocomplete="off">
+            <form method="post" action="{% url 'register' %}" autocomplete="off">
                 {% if error %}
                 <p style="color: orangered;">{{error}}</p>
                 {% endif %}
@@ -232,7 +232,7 @@ tell it
 
                 <input type="submit" class="register-btn" value="Register">
                 <br><br>
-                <p>already have an account? <a style="text-decoration: none;" href="{% url 'signin' %}">SignIn</a></p>
+                <p>already have an account? <a style="text-decoration: none;" href="{% url 'login' %}">login</a></p>
             </form>
             
         </div>

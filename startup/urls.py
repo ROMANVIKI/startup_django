@@ -9,10 +9,10 @@ urlpatterns = [
     path("enquiry", views.Enquiry.as_view(), name="enquiry"),
 
    
-    path("signin", views.signin, name="signin"),
+    path("signin", views.login, name="login"),
     path("logout", views.logout_view, name="logout"),
 
-    path("signup", views.signup, name="signup"),
+    path("signup", views.register, name="register"),
     # path("dashboard", views.dashborad, name="dashboard"),
   
     path('get_username', views.get_username, name='get-username'),
