@@ -3,7 +3,7 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView
 from .forms import SignInForm, SignUpForm, ContactForm, CheckoutForm
 from .models import CustomUser, Purchase, QrCode
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login as auth_login, logout
 from django.http import HttpResponse
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.decorators import login_required
@@ -54,7 +54,7 @@ def login(request):
             
             if user is not None:
                 
-                login(request, user=user)
+                auth_login(request, user=user)
                 request.session['username'] = username
                 return redirect(reverse('about'))
             else:
