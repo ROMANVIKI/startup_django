@@ -130,7 +130,7 @@ def register(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(reverse('signin'))
+            return redirect(reverse('login'))
         else:
             error = form.errors
             return render(request, 'signup.html', {'form': form, 'error':error})
