@@ -7,6 +7,8 @@
     <title>Enquiry</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    {% block styles %}
+    
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -15,8 +17,10 @@
             background-image: url('{% static "media/form.jpg" %}');
             background-size: cover; 
             background-position: center; 
+            background-repeat: no-repeat;
             margin: 0;
             padding: 0;
+            height: 100vh;
         }
 
         .form_container {
@@ -106,7 +110,11 @@
             height: auto;
         }
 
+    
+
+
     </style>
+    {% endblock styles %}
 </head>
 <body>
 
@@ -143,9 +151,7 @@
          </form>
          {% endblock enquiry_form %}
     </div>
-    {% comment %} <div class="image_container">
-        <img src="{% static 'media/contact.png' %}" alt="Side Image">
-    </div> {% endcomment %}
+
 </div>
 
 </body>

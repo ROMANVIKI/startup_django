@@ -16,12 +16,14 @@
             background-image: url('{% static "media/form.jpg" %}');
             background-size: cover; /* Cover the full screen */
             background-position: center; /* Center the background image */
+            background-repeat: no-repeat;
+            height: 100vh;
             margin: 0;
             padding: 0;
         }
 
         .form_container {
-            background-image: url('form.jpeg');
+            
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -238,8 +240,7 @@ tell it
         </div>
         <div style="transform: translate(61.573 2264.34) rotate(42);" class="image_container">
             <img 
-           
-            src="{% static 'media/signup.png' %}" 
+            src="{% static 'media/register.png' %}" 
             alt="Side Image">
         </div>
     </div>
