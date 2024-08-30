@@ -33,9 +33,15 @@ DEBUG = False
 
 
 
-ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh", 'localhost']
+# ALLOWED_HOSTS = ["127.0.0.1", ".vercel.app", ".now.sh", 'localhost']
 
 
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    ".render.com",  # Render's domain pattern
+    "startup-django.onrender.com",  # Your specific Render domain
+]
 
 
 
@@ -174,9 +180,6 @@ EMAIL_USE_TLS =True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 # 
-
-RAZOR_PAY_KEY = os.environ.get('RAZORPAY_KEY')
-RAZOR_PAY_KEY_SECRET = os.environ.get('RAZORPAY_KEY_SECRET')
 
 
 
