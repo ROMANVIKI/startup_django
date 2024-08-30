@@ -1,5 +1,9 @@
 #!/bin/bash
-# Ensure the script is executable with `chmod +x build_files.sh`
-echo "Building the project..."
+
+echo "Installing dependencies..."
+python3.12 -m pip install -r requirements.txt
+
+echo "Collecting static files..."
 python3.12 manage.py collectstatic --noinput
-echo "Static files collected."
+
+echo "Build completed."
