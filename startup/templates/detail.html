@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOKAZ</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+ <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    main {
+      width: 90%;
+      max-width: 40rem;
+      background-color: #fff;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    h3 {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #333;
+      margin-top: 1rem;
+    }
+
+    .add-to-cart {
+      font-size: 1.2rem;
+      background-color: #4787e9;
+      color: #fff;
+      font-weight: 400;
+      border: 0;
+      border-radius: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; /* Added to center vertically */
+    }
+
+    .add-to-cart:hover {
+      background-color: #1e56ed;
+    }
+
+    #buttons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+        /* Center image and text */
+    .container > div {
+      text-align: center;
+    }
+
+    .container img {
+      margin: 0 auto; /* Center the image horizontally */
+      display: flex; /* Ensure image displays as block-level element */
+      
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding: 1rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      h3 {
+        font-size: 0.9rem;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .add-to-cart {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+      }
+    }
+
+  </style>
+
+</head>
+<body>
+  
+  <main>
+    <div>
+      <h2 style="margin-right: 0 !important;"><a style="text-decoration: none; color: goldenrod ;" href="{% url 'home' %}">Back to Home</a></h2>
+    </div>
+      <div id="cart-text" class="container"> <!-- Added class="container" here -->
+       
+          <form method="post" action="{% url 'payment-process' %}">
+              {% csrf_token %}
+              <h1>Proceed to Buy the plan with Razorpay.</h1>
+              <div>
+                <img width="50%" src="{% static 'media/payment.png' %}" alt="">
+                <h2>Plan Name : {{ product.name }}</h2> <br>
+                <h2> Plan Price : ₹ {{ product.price }}</h2>
+              </div><br> <br>
+
+              <div id="buttons">
+                  <button class="add-to-cart" id="rzp-button1">Pay with Razorpay</button>
+              </div>
+          </form>
+      </div>
+  </main>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+      var api_key = "{{ api_key }}";
+      var price = "{{ product.price }}"
+      var options = {
+          "key": api_key, // Use the API key
+          "amount": price * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+          "currency": "INR",
+          "name": "TOKAZ",
+          "description": "Test Transaction",
+          "image": "https://example.com/your_logo",
+          "handler": function (response) {
+              alert(response.razorpay_payment_id);
+              alert(response.razorpay_order_id);
+              alert(response.razorpay_signature)
+          },
+          "prefill": {
+              "name": "",
+              "email": "",
+              "contact": ""
+          },
+          "notes": {
+              "address": "Razorpay Corporate Office"
+          },
+          "theme": {
+              "color": "#3399cc"
+          }
+      };
+      var rzp1 = new Razorpay(options);
+      rzp1.on('payment.failed', function (response) {
+          alert(response.error.code);
+          alert(response.error.description);
+          alert(response.error.source);
+          alert(response.error.step);
+          alert(response.error.reason);
+          alert(response.error.metadata.order_id);
+          alert(response.error.metadata.payment_id);
+      });
+      document.getElementById('rzp-button1').onclick = function (e) {
+          rzp1.open();
+          e.preventDefault();
+      }
+  </script>
+</body>
+
+</html>
