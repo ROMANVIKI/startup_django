@@ -4,6 +4,9 @@
         background-color:  #FB6542; /* Olive Drab */
 
     }
+    .card2 {
+      background-color : #000052;
+    }
     .fade-in {
       animation: fadeInAnimation 1s ease-in forwards;
       opacity: 0;
@@ -48,7 +51,7 @@ style=visibility:visible;animation-name:fadeInUp>
       {% endfor %}
       {% for standard in standard_plan %}
         <div class="col-md-4">
-            <div class="card mb-4 bg-secondary rounded fade-in">
+            <div class="card card2 mb-4 bg-secondary rounded fade-in">
                 <div class="card-body">
                     <h5 class="card-title text-center text-light"><b>{{standard.name}}</b></h5>
                     <p class="card-text text-light">Yes HIOX, I want to make money for <b>6 Months!</b></p>
